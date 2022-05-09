@@ -1,8 +1,8 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Score
 from flask import request
 from werkzeug.urls import url_parse
 from app import db
@@ -64,3 +64,22 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+
+@app.route('/score')
+@login_required
+def score():
+    return render_template('score.html', title='Scores')
+
+@app.route('/game' , methods=['GET', 'POST'])
+@login_required
+def play():
+    if request.method =='POST':
+        record = Score(points=request.form['score'])
+        db.session.add(record)
+        db.session.commit()
+    return render_template('game.html', title='Game')
+
+
+

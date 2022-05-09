@@ -1,0 +1,127 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    overflow-x: none;
+}
+
+.header {
+	padding: 5px;
+	text-align: center;
+	background: #1061e4;
+    position:absolute;
+    left:5px;
+    right:5px;
+
+  }
+
+body{
+    max-width: 300px;
+    margin: auto;
+    font-family: sans-serif;
+
+}
+.bottom{
+    display: flex;
+}
+
+
+.color{
+    width: 150px;
+    height: 150px;
+    border-radius: 15%;
+    position: relative;
+    right:    0;
+    bottom:   -20%;
+    transition: transform 300ms;
+}
+
+.color:hover{
+    transform: scale(0.9);
+}
+.blue{
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+
+.top{
+    width: 300px;
+    height: 200px;
+    display: grid;
+    text-align: center;
+}
+.colorText{
+    font: 3rem sans-serif; 
+    display: none;
+    position: relative;
+    right:    0;
+    bottom:   -95%;
+}
+
+#time{
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 300px;
+    font: 3rem sans-serif; 
+}
+#correct{
+    position: absolute;
+    color: lawngreen;
+    bottom: 20px;
+    text-shadow: 0px 0px 10px black;
+    font: 3rem sans-serif; 
+}
+#checkmark, #wrong{
+    pointer-events: none;
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    top: 10%;
+    opacity: 0;
+}
+@media only screen and (max-width: 600px){
+    #checkmark, #wrong{
+        position: absolute;
+        width: 50%;
+        left: 25%;
+        top: 10%;
+    }
+}
+
+.fadeAway{
+    animation: fadeAway 500ms;
+}
+@keyframes fadeAway{
+    0%{opacity: 1}
+    50%{opacity: 1}
+    100%{opacity: 0}
+}
+#start{
+    font-size: 2rem;
+    height: 100px;
+    padding: 0.5rem 2rem;
+    border: 3px solid black;
+    border-radius: 25px;
+    margin: 1rem auto;
+    display: block;
+    position: relative;
+    right:    0;
+    bottom:   -45%;
+}
+#start{
+    background-color: #eeaabc; 
+}
+#start:hover{
+    background-color: #1061e4;
+}

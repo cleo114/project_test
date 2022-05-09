@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/score.css') }}">
+    <link rel="icon" href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+
+<div class="header">
+    <img src="logo.png" alt="logo" width = '160' height="80" />
+</div>
+
+
+<h1>  </h1>
+<table class = "center" >
+    <thead>
+        <tr>
+        <th> Rank </th>
+        <th> Name</th>
+        <th>Highest Score</th>
+        <th>Average Score</th>
+        <th>Number of Games</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td> 1 </td>
+        <td> Christine</td>
+        <td> 10</td>
+        <td> 4</td>
+        <td> 2</td>
+        </tr>
+        <tr>
+            <td> 2 </td>
+            <td> Cleo </td>
+            <td> 6 </td>
+            <td> 6 </td>
+            <td> 1 </td>
+        </tr>
+
+        <tr>
+            <td> {{ current_user.username }} </td>
+            <td>  </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </tbody>
+  </table>
+
+</body>
+
+{% endblock %}

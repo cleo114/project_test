@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Guess</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/game.css') }}">
+    <link rel="icon" href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <div class="header">
+        <img src="logo.png" alt="logo" width = '160' height="80" />
+    </div>
+
+    <h1>  </h1>
+
+
+   <img src="correct.svg" alt="" id="checkmark">
+   <img src="incorrect.svg" alt="" id="wrong">
+    
+   
+   <div class="top">
+       <button id="start" onclick="startGame()">Start</button>
+        <div id="color1" class="colorText color1"></div>
+        <div id="color2" class="colorText color2"></div>
+    </div>
+    
+    <div class="bottom">
+       <div class="row">
+        <div id="Blue" class="color blue"></div>
+        <div id="Red" class="color red"></div>
+       </div>
+       <div class="row">
+        <div id="Green" class="color green"></div>
+        <div id="Yellow" class="color yellow"></div>
+       </div>
+    </div>
+    <span id="correct"></span>
+    <span id="time"></span>
+</body>
+
+<script src="{{url_for('static', filename='javascript/game.js')}}"></script>
+
+
+</html>
+
+{% endblock %}
