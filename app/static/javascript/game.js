@@ -1,8 +1,15 @@
 var colors = ["Blue", "Red", "Green", "Yellow"];
+
+
+var clicks = 0;
+    
+
 function startGame(){
     setInterval(timer, 1000);
     reset();
+
 }
+
 var checkmark = document.getElementById("checkmark");
 var wrong = document.getElementById("wrong");
 var correct = document.getElementById("correct");

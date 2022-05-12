@@ -8,6 +8,8 @@ from werkzeug.urls import url_parse
 from app import db
 from app.forms import RegistrationForm
 
+from sqlalchemy.sql import func
+
 
 @app.route('/')
 @app.route('/index')
@@ -67,19 +69,24 @@ def register():
 
 
 
-@app.route('/score')
-@login_required
-def score():
-    return render_template('score.html', title='Scores')
 
 @app.route('/game' , methods=['GET', 'POST'])
 @login_required
 def play():
     if request.method =='POST':
-        record = Score(points=request.form['score'])
+        print(request.form['score'])
+        record = Score(user_id=current_user.id, points= request.form['score'], cum_points=0, games_played=1)
         db.session.add(record)
         db.session.commit()
+        return('', 204)
     return render_template('game.html', title='Game')
 
 
 
+@app.route('/score')
+@login_required
+def score():
+
+    xx=db.session.query(User.username, func.max(Score.points), func.count(Score.user_id), func.avg(Score.points) ).filter(User.id==Score.user_id).group_by(Score.user_id).order_by(func.max(Score.points).desc()).limit(10).all()
+
+    return render_template('score.html', title='Scores', res=xx)

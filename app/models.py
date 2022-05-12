@@ -27,6 +27,7 @@ class Post(db.Model):
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #round=db.relationship('Score')
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
@@ -40,8 +41,10 @@ def load_user(id):
 class Score(db.Model):
     __tablename__ = 'Score'
     id = db.Column(db.Integer, primary_key=True)
-    #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    points = db.Column(db.String(64))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    points = db.Column(db.Integer)
+    cum_points = db.Column(db.Integer, default=0)
+    games_played = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return '<score {}>'.format(self.points)

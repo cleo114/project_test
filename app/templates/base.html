@@ -1,24 +1,28 @@
 <!doctype html>
 <html>
     <head>
-        {% if title %}
-        <title>{{ title }} - microblog</title>
-        {% else %}
-        <title>microblog</title>
-        {% endif %}
+        <meta charset="UTF-8">
+        <title>Color Match</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/score.css') }}">
+        <link rel="icon" href="logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+
+
     <body>
         <div>
-            Microblog:
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('score') }}">score</a>
-            <a href="{{ url_for('play') }}">game</a>
+            <a href="{{ url_for('index') }}">Instructions</a>
+            <a href="{{ url_for('score') }}">Scoreboard</a>
+            <a href="{{ url_for('play') }}">Game</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
             {% else %}
             <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
         </div>
+
+        <img src="/project_test/app/templates/logo.png" alt="logo" width = '160' height="80" />
+
         <hr>
         {% with messages = get_flashed_messages() %}
         {% if messages %}

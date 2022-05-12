@@ -24,94 +24,32 @@
     <thead>
         <tr>
         <th> Rank </th>
-        <th> Name</th>
+        <th> Username</th>
         <th>Highest Score</th>
         <th>Average Score</th>
-        <th>Number of Games</th>
+        <th> Games Played</th>
         </tr>
     </thead>
+
+
+
     <tbody>
+        {% for i in res %}
         <tr>
-        <td> 1 </td>
-        <td> Christine</td>
-        <td> 10</td>
-        <td> 4</td>
-        <td> 2</td>
+            <td class="count"> </td>
+            <td> {{ i[0] }}</td>
+            <td> {{ i[1] }}</td>
+            <td> {{ i[3] }}</td>
+            <td> {{ i[2] }}</td>
         </tr>
-        <tr>
-            <td> 2 </td>
-            <td> Cleo </td>
-            <td> 6 </td>
-            <td> 6 </td>
-            <td> 1 </td>
-        </tr>
-
-        <tr>
-            <td> {{ current_user.username }} </td>
-            <td>  </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
-
-        <tr>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-        </tr>
+        {% endfor %}
     </tbody>
   </table>
 
+
 </body>
+
+
+
 
 {% endblock %}
