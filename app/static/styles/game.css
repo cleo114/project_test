@@ -11,7 +11,6 @@
 .header {
 	padding: 5px;
 	text-align: center;
-	background: #1061e4;
     position:absolute;
     left:5px;
     right:5px;
@@ -78,9 +77,9 @@ body{
 }
 #correct{
     position: absolute;
-    color: lawngreen;
+    color: darkgreen;
     bottom: 20px;
-    text-shadow: 0px 0px 10px black;
+    left: 250px;
     font: 3rem sans-serif; 
 }
 #checkmark, #wrong{
@@ -119,10 +118,10 @@ body{
     position: relative;
     right:    0;
     bottom:   -45%;
-}
-#start{
     background-color: #eeaabc; 
+
 }
+
 #start:hover{
     background-color: #1061e4;
 }

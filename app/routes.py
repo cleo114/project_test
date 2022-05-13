@@ -75,7 +75,7 @@ def register():
 def play():
     if request.method =='POST':
         print(request.form['score'])
-        record = Score(user_id=current_user.id, points= request.form['score'], cum_points=0, games_played=1)
+        record = Score(user_id=current_user.id, points= request.form['score'])
         db.session.add(record)
         db.session.commit()
         return('', 204)
@@ -87,6 +87,6 @@ def play():
 @login_required
 def score():
 
-    xx=db.session.query(User.username, func.max(Score.points), func.count(Score.user_id), func.avg(Score.points) ).filter(User.id==Score.user_id).group_by(Score.user_id).order_by(func.max(Score.points).desc()).limit(10).all()
+    xx=db.session.query(User.username, func.max(Score.points), func.count(Score.user_id), func.round(func.avg(Score.points),1) ).filter(User.id==Score.user_id).group_by(Score.user_id).order_by(func.max(Score.points).desc()).limit(10).all()
 
     return render_template('score.html', title='Scores', res=xx)
