@@ -10,20 +10,27 @@
     <link rel="icon" href="logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body id="body">
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 
-   <img src="correct.svg" alt="" id="checkmark">
-   <img src="incorrect.svg" alt="" id="wrong">
+   <img src="correct.svg" alt="" id="checkmark"> <!-- CHECKMARK -->
+   <img src="incorrect.svg" alt="" id="wrong"> <!-- WRONG -->
     
+
    
    <div class="top">
        <button id="start" onclick="startGame()">Start</button>
         <div id="color1" class="colorText color1"></div>
         <div id="color2" class="colorText color2"></div>
     </div>
+    
+    
+    <div id = "GameBoard">
+    </div>
+    <!--
+    
     
     <div class="bottom">
        <div class="row">
@@ -35,13 +42,18 @@
         <div id="Yellow" class="color yellow"></div>
        </div>
     </div>
-    <span id="correct"></span>
+    --> 
+
+    <span id="correct"></span> 
     <span id="time"></span>
-</body>
 
 <script src="{{url_for('static', filename='javascript/game.js')}}"></script>
+
+</body>
+
 
 
 </html>
 
 {% endblock %}
+
