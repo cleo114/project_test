@@ -1,5 +1,5 @@
 var colors = ["Blue", "Red", "Green", "Yellow"];  
-var extraColors = ["Blue", "Red", "Green", "Yellow", "White"];  
+var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Grey"]; 
 
 var clicks = 0;
 var gridSize = 2; 
@@ -64,18 +64,75 @@ function makeBoard(numCorrect) {
 function defineColours(corAns) { 
 
     var allSquares = document.getElementById("GameBoard").childNodes;
+
+    var alreadyChosen = []; 
+    var alreadyChosen2 = []; 
+    var randomIndex = 0; 
+
+    if (allSquares.length == 4) {
+
+            var randomIndex = Math.floor(Math.random()*4); 
+            var chosenCol = colors[randomIndex]; 
+            while (alreadyChosen.indexOf(chosenCol) == -1 || alreadyChosen.length < 4) { 
+                if (alreadyChosen.indexOf(chosenCol) == -1) { 
+                    alreadyChosen.push(chosenCol); 
+                }
+                randomIndex = Math.floor(Math.random()*4);
+                chosenCol = colors[randomIndex];
+            }
+
+            for (let i = 0; i < allSquares.length; i++) { 
+                allSquares[i].style.backgroundColor = alreadyChosen[i]; 
+                allSquares[i].classList.add(alreadyChosen[i], "color"); 
+                let onclick = "checkColor('".concat(alreadyChosen[i],"','",corAns,"')");
+                allSquares[i].setAttribute("onclick", onclick);
+
+            } 
+        } else { 
+
+            var randomIndex = Math.floor(Math.random()*6); 
+            var chosenCol2 = extraColors[randomIndex]; 
+            while (alreadyChosen2.indexOf(chosenCol2) == -1 || alreadyChosen2.length < 6) { 
+                if (alreadyChosen2.indexOf(chosenCol2) == -1) { 
+                    alreadyChosen2.push(chosenCol2); 
+                }
+                randomIndex = Math.floor(Math.random()*6);
+                chosenCol2 = extraColors[randomIndex];
+            }
+
+            for (let i = 0; i < allSquares.length; i++) { 
+                allSquares[i].style.backgroundColor = alreadyChosen2[i%6]; 
+                allSquares[i].classList.add(alreadyChosen2[i%6], "color"); 
+                let onclick = "checkColor('".concat(alreadyChosen2[i%6],"','",corAns,"')");
+                allSquares[i].setAttribute("onclick", onclick);
+
+            } 
+        }
+    } 
+
+
+    /*
     for (let i = 0; i < allSquares.length; i++) {
         var j = i%4; 
+
+        if (allSquares.length < 4 || i < 4) {
         //var alreadyChosen = []; 
         //var randomIndex = Math.floor(Math.random()*allSquares.length); 
         allSquares[i].style.backgroundColor = colors[j]; 
         allSquares[i].classList.add(colors[j], "color"); 
+        } else {
+            
+        var randomIndex = Math.floor(Math.random()*7)
+        allSquares[i].style.backgroundColor = extraColors[randomIndex]; 
+        allSquares[i].classList.add(colors[j], "color"); 
+        }
         //allSquares[i].addEventListener("click", function() { checkColor(colors[j], corAns);  } ); 
         let onclick = "checkColor('".concat(colors[j],"','",corAns,"')");
         allSquares[i].setAttribute("onclick", onclick);
     } 
 
 }
+*/
 
 function reset(){
 
