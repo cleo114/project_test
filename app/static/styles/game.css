@@ -22,6 +22,7 @@ body{
     font-family: sans-serif;
 
 }
+
 .bottom{
     display: flex;
 }
@@ -89,18 +90,24 @@ body{
 
 #time{
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
+    left: 60%;
+    padding: 0px; 
+    margin: 0px; 
     text-align: center;
-    width: 300px;
     font: 3rem sans-serif; 
 }
+
 #correct{
     position: absolute;
     color: darkgreen;
-    bottom: 20px;
-    left: 250px;
+    left: 40%; 
+    bottom: 10px;
     font: 3rem sans-serif; 
+    padding: 0px; 
+    margin: 0px; 
 }
+
 #checkmark, #wrong{
     pointer-events: none;
     position: absolute;

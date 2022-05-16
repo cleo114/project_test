@@ -1,6 +1,8 @@
 var colors = ["Blue", "Red", "Green", "Yellow"];  
 var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Grey"]; 
 
+var colorsLength = colors.length; 
+var extraColorsLength = extraColors.length; 
 var clicks = 0;
 var gridSize = 2; 
     
@@ -69,15 +71,15 @@ function defineColours(corAns) {
     var alreadyChosen2 = []; 
     var randomIndex = 0; 
 
-    if (allSquares.length == 4) {
+    if (allSquares.length == colorsLength) {
 
-            var randomIndex = Math.floor(Math.random()*4); 
+            var randomIndex = Math.floor(Math.random()*colorsLength); 
             var chosenCol = colors[randomIndex]; 
-            while (alreadyChosen.indexOf(chosenCol) == -1 || alreadyChosen.length < 4) { 
+            while (alreadyChosen.indexOf(chosenCol) == -1 || alreadyChosen.length < colorsLength) { 
                 if (alreadyChosen.indexOf(chosenCol) == -1) { 
                     alreadyChosen.push(chosenCol); 
                 }
-                randomIndex = Math.floor(Math.random()*4);
+                randomIndex = Math.floor(Math.random()*colorsLength);
                 chosenCol = colors[randomIndex];
             }
 
@@ -90,20 +92,39 @@ function defineColours(corAns) {
             } 
         } else { 
 
-            var randomIndex = Math.floor(Math.random()*6); 
+            var randomIndex = Math.floor(Math.random()*extraColorsLength); 
             var chosenCol2 = extraColors[randomIndex]; 
-            while (alreadyChosen2.indexOf(chosenCol2) == -1 || alreadyChosen2.length < 6) { 
+            while (alreadyChosen2.indexOf(chosenCol2) == -1 || alreadyChosen2.length < extraColorsLength) { 
                 if (alreadyChosen2.indexOf(chosenCol2) == -1) { 
                     alreadyChosen2.push(chosenCol2); 
                 }
-                randomIndex = Math.floor(Math.random()*6);
+                randomIndex = Math.floor(Math.random()*extraColorsLength);
                 chosenCol2 = extraColors[randomIndex];
             }
 
+            //var newList = alreadyChosen2.slice(); 
+            //console.log(alreadyChosen2); 
+            //console.log(newList); 
+            //newList = newList.slice(4,5).concat(newList.slice(0,1), newList.slice(5,6), newList.slice(1,4))  
+            //console.log(newList); 
+            //console.log(alreadyChosen2); 
+            
+            var newColors = colors.slice(); 
+
             for (let i = 0; i < allSquares.length; i++) { 
-                allSquares[i].style.backgroundColor = alreadyChosen2[i%6]; 
-                allSquares[i].classList.add(alreadyChosen2[i%6], "color"); 
-                let onclick = "checkColor('".concat(alreadyChosen2[i%6],"','",corAns,"')");
+                if (i < colorsLength) { 
+                    randomIndex = Math.floor(Math.random()*newColors.length); 
+                    var squareColour = newColors[randomIndex]; 
+                    newColors.splice(randomIndex, 1); 
+                    //console.log(newColors);
+                } else { 
+                    randomIndex = Math.floor(Math.random()*extraColorsLength); 
+                    squareColour = extraColors[randomIndex]; 
+                    //console.log(squareColour);
+                }
+                allSquares[i].style.backgroundColor = squareColour; 
+                allSquares[i].classList.add(squareColour, "color"); 
+                let onclick = "checkColor('".concat(squareColour,"','",corAns,"')");
                 allSquares[i].setAttribute("onclick", onclick);
 
             } 
@@ -152,7 +173,7 @@ function reset(){
     // Or, if the bottom prompt is 'color1' or 'color2'
 
     document.getElementById("start").style.display = "none";
-    var random = Math.floor(Math.random() * 4); // random no. between 0 and 3
+    var random = Math.floor(Math.random() * colorsLength); // random no. between 0 and 3
     var correctAnswer = colors[random]; // choose colour randomly from list
     color1.innerHTML = correctAnswer; // set TEXT of first 'colour prompt' to be correct colour
     color2.style.color = correctAnswer; // set LITERAL COLOUR of second 'colour prompt' to be correct colour
