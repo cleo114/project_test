@@ -10,7 +10,7 @@ var gridSize = 2;
     
 
 function startGame(){
-    setInterval(timer, 1000);
+    //setInterval(timer, 1000);
     reset();
 
 }
@@ -46,7 +46,7 @@ function makeBoard(numCorrect) {
             gridSize++; 
             } 
 
-        console.log("grid size: ", gridSize); 
+        //console.log("grid size: ", gridSize); 
         var bod = document.getElementById('body'); 
         bod.removeChild(document.getElementById('GameBoard')); 
         var newBoard = document.createElement('div'); 
@@ -65,29 +65,81 @@ function makeBoard(numCorrect) {
     } 
 }
 
+// if the length is > 4: 
+// for the first four iterations, generate a random index from colors
+// generate another random index from allSquares
+// assign the random index from colors (i.e. the color) to the random index from allSquares
+// keep track of the index already assigned in allSquares
+// when you encounter that index, ignore it
+// assign another random color to the correct index 
+
+
+
+function setColourAndEvent(divElement, squCol, corAns) { 
+
+    divElement.style.backgroundColor = squCol; 
+    divElement.classList.add("color"); 
+    let onclick = "checkColor('".concat(squCol,"','",corAns,"')");
+    divElement.setAttribute("onclick", onclick);
+
+}
+
 function defineColours(corAns) { 
 
     var allSquares = document.getElementById("GameBoard").childNodes;
     var newColors = colors.slice(); 
 
-    for (let i = 0; i < allSquares.length; i++) { 
-        if (i < colorsLength) { 
+    if (allSquares.length == colorsLength) { 
+
+        for (let i = 0; i < allSquares.length; i++) { 
             randomIndex = Math.floor(Math.random()*newColors.length); 
             var squareColour = newColors[randomIndex]; 
             newColors.splice(randomIndex, 1); 
-            //console.log(newColors);
-        } else { 
-            randomIndex = Math.floor(Math.random()*extraColorsLength); 
-            squareColour = extraColors[randomIndex]; 
-            //console.log(squareColour);
-        }
-        allSquares[i].style.backgroundColor = squareColour; 
-        allSquares[i].classList.add("color"); 
-        let onclick = "checkColor('".concat(squareColour,"','",corAns,"')");
-        allSquares[i].setAttribute("onclick", onclick);
+            setColourAndEvent(allSquares[i], squareColour, corAns); 
+        } 
 
-    } 
-}
+    } else { 
+
+        // create a new list with all the possible indexes for allSquares
+        // generate a random index from this list by generating a number between 0 and the length
+        // slice the list to remove the index 
+        // add the chosen index to a list to keep track of what has already been seen 
+        // set the colour and event for the chosen index: 
+        // ->for the first four iterations, only choose options from the colors list
+        //      -> slice the chosen color so that the next choice is unique 
+        // ->for the remaining iterations, can choose from the extraColors list as well 
+        // repeat; can guarantee unique index because we have removed the previous one from the list of possible indexes 
+
+        var possibleIndexes = []; 
+
+        for (let i=0; i<allSquares.length;i++) { 
+            possibleIndexes.push(i); 
+        }
+ 
+        for (let i = 0; i < allSquares.length; i++) { 
+
+            // choose square from Grid: 
+            var randomIndex = Math.floor(Math.random()*possibleIndexes.length);
+            var chosenIndex = possibleIndexes[randomIndex]; 
+            //console.log(possibleIndexes); 
+            //console.log('random square index chosen: ', chosenIndex); 
+            possibleIndexes.splice(randomIndex,1); 
+
+            // choose colour: 
+            if (i < colorsLength) { 
+                var colourIndex = Math.floor(Math.random()*newColors.length); 
+                var squareColour = newColors[colourIndex]; 
+                //console.log('square colour chosen: ', squareColour); 
+                newColors.splice(colourIndex, 1); 
+            } else { 
+                var colourIndex = Math.floor(Math.random()*extraColorsLength); 
+                var squareColour = extraColors[colourIndex]; 
+                //console.log("chosen index: ", chosenIndex, "square colour: ", squareColour); 
+            }
+            setColourAndEvent(allSquares[chosenIndex], squareColour, corAns); 
+        }
+    }
+} 
 
 function reset(){
 
