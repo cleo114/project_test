@@ -1,5 +1,7 @@
 var colors = ["Blue", "Red", "Green", "Yellow"];  
-var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Grey"]; 
+var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Orange", "HotPink", "Purple", "powderblue"]; 
+//var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "linen", "Grey", "lightgrey", "mintcream"]; 
+//var extraColors = ["Blue", "Red", "Green", "Yellow"] //"Blue", "Red", "Green", "Yellow","Blue"]
 
 var colorsLength = colors.length; 
 var extraColorsLength = extraColors.length; 
@@ -8,7 +10,7 @@ var gridSize = 2;
     
 
 function startGame(){
-    //setInterval(timer, 1000);
+    setInterval(timer, 1000);
     reset();
 
 }
@@ -20,6 +22,7 @@ var correctInt = 0; // keeps track of no. of correct guesses
 
 
 function checkColor(color, correctAnswer){
+    console.log("You clicked", color); 
     if(color===correctAnswer){
         console.log("Thats correct"); 
         correctInt++;
@@ -62,98 +65,29 @@ function makeBoard(numCorrect) {
     } 
 }
 
-
 function defineColours(corAns) { 
 
     var allSquares = document.getElementById("GameBoard").childNodes;
+    var newColors = colors.slice(); 
 
-    var alreadyChosen = []; 
-    var alreadyChosen2 = []; 
-    var randomIndex = 0; 
-
-    if (allSquares.length == colorsLength) {
-
-            var randomIndex = Math.floor(Math.random()*colorsLength); 
-            var chosenCol = colors[randomIndex]; 
-            while (alreadyChosen.indexOf(chosenCol) == -1 || alreadyChosen.length < colorsLength) { 
-                if (alreadyChosen.indexOf(chosenCol) == -1) { 
-                    alreadyChosen.push(chosenCol); 
-                }
-                randomIndex = Math.floor(Math.random()*colorsLength);
-                chosenCol = colors[randomIndex];
-            }
-
-            for (let i = 0; i < allSquares.length; i++) { 
-                allSquares[i].style.backgroundColor = alreadyChosen[i]; 
-                allSquares[i].classList.add(alreadyChosen[i], "color"); 
-                let onclick = "checkColor('".concat(alreadyChosen[i],"','",corAns,"')");
-                allSquares[i].setAttribute("onclick", onclick);
-
-            } 
+    for (let i = 0; i < allSquares.length; i++) { 
+        if (i < colorsLength) { 
+            randomIndex = Math.floor(Math.random()*newColors.length); 
+            var squareColour = newColors[randomIndex]; 
+            newColors.splice(randomIndex, 1); 
+            //console.log(newColors);
         } else { 
-
-            var randomIndex = Math.floor(Math.random()*extraColorsLength); 
-            var chosenCol2 = extraColors[randomIndex]; 
-            while (alreadyChosen2.indexOf(chosenCol2) == -1 || alreadyChosen2.length < extraColorsLength) { 
-                if (alreadyChosen2.indexOf(chosenCol2) == -1) { 
-                    alreadyChosen2.push(chosenCol2); 
-                }
-                randomIndex = Math.floor(Math.random()*extraColorsLength);
-                chosenCol2 = extraColors[randomIndex];
-            }
-
-            //var newList = alreadyChosen2.slice(); 
-            //console.log(alreadyChosen2); 
-            //console.log(newList); 
-            //newList = newList.slice(4,5).concat(newList.slice(0,1), newList.slice(5,6), newList.slice(1,4))  
-            //console.log(newList); 
-            //console.log(alreadyChosen2); 
-            
-            var newColors = colors.slice(); 
-
-            for (let i = 0; i < allSquares.length; i++) { 
-                if (i < colorsLength) { 
-                    randomIndex = Math.floor(Math.random()*newColors.length); 
-                    var squareColour = newColors[randomIndex]; 
-                    newColors.splice(randomIndex, 1); 
-                    //console.log(newColors);
-                } else { 
-                    randomIndex = Math.floor(Math.random()*extraColorsLength); 
-                    squareColour = extraColors[randomIndex]; 
-                    //console.log(squareColour);
-                }
-                allSquares[i].style.backgroundColor = squareColour; 
-                allSquares[i].classList.add(squareColour, "color"); 
-                let onclick = "checkColor('".concat(squareColour,"','",corAns,"')");
-                allSquares[i].setAttribute("onclick", onclick);
-
-            } 
+            randomIndex = Math.floor(Math.random()*extraColorsLength); 
+            squareColour = extraColors[randomIndex]; 
+            //console.log(squareColour);
         }
-    } 
-
-
-    /*
-    for (let i = 0; i < allSquares.length; i++) {
-        var j = i%4; 
-
-        if (allSquares.length < 4 || i < 4) {
-        //var alreadyChosen = []; 
-        //var randomIndex = Math.floor(Math.random()*allSquares.length); 
-        allSquares[i].style.backgroundColor = colors[j]; 
-        allSquares[i].classList.add(colors[j], "color"); 
-        } else {
-            
-        var randomIndex = Math.floor(Math.random()*7)
-        allSquares[i].style.backgroundColor = extraColors[randomIndex]; 
-        allSquares[i].classList.add(colors[j], "color"); 
-        }
-        //allSquares[i].addEventListener("click", function() { checkColor(colors[j], corAns);  } ); 
-        let onclick = "checkColor('".concat(colors[j],"','",corAns,"')");
+        allSquares[i].style.backgroundColor = squareColour; 
+        allSquares[i].classList.add("color"); 
+        let onclick = "checkColor('".concat(squareColour,"','",corAns,"')");
         allSquares[i].setAttribute("onclick", onclick);
-    } 
 
+    } 
 }
-*/
 
 function reset(){
 
@@ -186,6 +120,7 @@ function reset(){
     // and the TEXT of color2 prompt 
 
     // list index: [ 0 , 1 , 2 , 3 ]
+
     if(random+1==4){
         color2.innerHTML = colors[random-3]; // if index=3, go to (3)-(3)=0
     }else{
