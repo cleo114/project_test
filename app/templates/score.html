@@ -1,52 +1,35 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-
-<head>
-    <meta charset="UTF-8">
-    <title>Results</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/score.css') }}">
-    <link rel="icon" href="logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-
 <body>
+ 
+</div>
+<div id = 'middlebox' class = 'results-box'>
+        <h1 class = 'center' id = 'resultsheader'> RESULTS </h1>
+    <table id = 'rankings' class = "center" >
+        <thead id = 'info_font'>
+            <tr>
+                <th> Rank </th>
+                <th> Username</th>
+                <th>Highest Score</th>
+                <th>Average Score</th>
+                <th> Games Played</th>
+            </tr>
+        </thead>
 
-
-
-<h1>  </h1>
-<table class = "center" >
-    <thead>
-        <tr>
-        <th> Rank </th>
-        <th> Username</th>
-        <th>Highest Score</th>
-        <th>Average Score</th>
-        <th> Games Played</th>
-        </tr>
-    </thead>
-
-
-
-    <tbody>
-        {% for i in res %}
-        <tr>
-            <td class="count"> </td>
-            <td> {{ i[0] }}</td>
-            <td> {{ i[1] }}</td>
-            <td> {{ i[3] }}</td>
-            <td> {{ i[2] }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-  </table>
-
-
+        <tbody id = 'info_font'>
+            {% for i in res %}
+            <tr>
+                <td class="count"> </td>
+                <td> {{ i[0] }}</td>
+                <td> {{ i[1] }}</td>
+                <td> {{ i[3] }}</td>
+                <td> {{ i[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 </body>
-
-
-
 
 {% endblock %}
