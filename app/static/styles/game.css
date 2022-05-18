@@ -7,15 +7,24 @@
 }
 */
 
+
 #resultsContainer { 
     display: grid; 
     grid-template-columns: auto auto;
-    height: 50px; 
+    height: 7% ;
     width: 300px; 
     align-content: center;
     border-radius: 10px;
-    position: absolute;
-    bottom: 10%; 
+    margin:auto;
+    /* position: absolute;
+    left:50%;
+    bottom:1%;
+    transform: translate(-50%,-50%); */
+    position: relative;
+    bottom:50px;
+
+
+
 }
 
 #time { 
@@ -37,31 +46,26 @@
 
   }
 
-body{
-    max-width: 300px;
-    margin: auto;
-    font-family: sans-serif;
-    background-color: #89CFF0;
 
-}
-
-.bottom{
-    display: flex;
-}
 
 #GameBoard { 
-    position: absolute; 
-    display: grid; 
+    margin: auto;
     height: 300px; 
     width: 300px; 
     gap: 1px;
     max-width: 300px;
     max-height: 300px;
-    align-items: center;
-    justify-content: center;
     box-sizing: border-box;
+    padding: 100px 0px; 
+    /* position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%); */
+    position: relative;
+    bottom: 175px;
+} 
 
-}
+
 
 .color{
     width: 150px;
@@ -69,9 +73,6 @@ body{
     border-radius: 15%;
     border: 2px solid white; 
     box-sizing: border-box; 
-    position: relative;
-    right:    0;
-    bottom:   -20%;
     transition: transform 300ms;
 }
 
@@ -84,163 +85,44 @@ body{
     height: 200px;
     display: grid;
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
-.colorText{
-    font: 3rem sans-serif; 
-    display: none;
+
+
+#color1 { 
+    position: relative; 
+    /* width: 25%;  */
+    left: -10px;
+    font-family: "Lucida Console", monospace;
+    font-size: 50px;
+
+}
+
+#color2 { 
+    position: relative; 
+    /* width: 25%;  */
+    left: -10px; 
+    top: -10px;
+    font-family: "Lucida Console", monospace;
+    font-size: 50px;
+    
+}
+
+#colourLabels { 
+    text-align: center;
     position: relative;
-    right:    0;
-    bottom:   -95%;
-}
+    bottom: 100px;
+} 
 
 #start{
-    font-size: 2rem;
-    height: 100px;
-    padding: 0.5rem 2rem;
-    border: 3px solid black;
-    border-radius: 25px;
-    margin: 1rem auto;
-    display: block;
-    position: relative;
-    right:    0;
-    bottom:   -45%;
-    background-color: #eeaabc; 
-
-}
-
-#start:hover{
-    background-color: #1061e4;
-}
-
-
-
-/*
-
-*{
-    padding: 0;
-    margin: 0;
-    outline: none;
-    overflow-x: none;
-    background-color: #89CFF0;
-}
-
-.header {
-	padding: 5px;
-	text-align: center;
-    position:absolute;
-    left:5px;
-    right:5px;
-
-  }
-
-body{
-    max-width: 300px;
-    margin: auto;
-    font-family: sans-serif;
-
-}
-.bottom{
-    display: flex;
-}
-
-
-.color{
-    width: 150px;
     height: 150px;
-    border-radius: 15%;
-    position: relative;
-    right:    0;
-    bottom:   -20%;
-    transition: transform 300ms;
-}
-
-.color:hover{
-    transform: scale(0.9);
-}
-.blue{
-    background-color: blue;
-}
-.red{
-    background-color: red;
-}
-.green{
-    background-color: green;
-}
-.yellow{
-    background-color: yellow;
-}
-
-.top{
-    width: 300px;
-    height: 200px;
-    display: grid;
-    text-align: center;
-}
-.colorText{
-    font: 3rem sans-serif; 
-    display: none;
-    position: relative;
-    right:    0;
-    bottom:   -95%;
-}
-
-#time{
-    position: absolute;
-    bottom: 20px;
-    text-align: center;
-    width: 300px;
-    font: 3rem sans-serif; 
-}
-#correct{
-    position: absolute;
-    color: darkgreen;
-    bottom: 20px;
-    left: 250px;
-    font: 3rem sans-serif; 
-}
-#checkmark, #wrong{
-    pointer-events: none;
-    position: absolute;
-    width: 10%;
-    left: 45%;
-    top: 10%;
-    opacity: 0;
-}
-@media only screen and (max-width: 600px){
-    #checkmark, #wrong{
-        position: absolute;
-        width: 50%;
-        left: 25%;
-        top: 10%;
-    }
-}
-
-.fadeAway{
-    animation: fadeAway 500ms;
-}
-@keyframes fadeAway{
-    0%{opacity: 1}
-    50%{opacity: 1}
-    100%{opacity: 0}
-}
-#start{
-    font-size: 2rem;
-    height: 100px;
-    padding: 0.5rem 2rem;
-    border: 3px solid black;
-    border-radius: 25px;
-    margin: 1rem auto;
+    width: 15%;
     display: block;
-    position: relative;
-    right:    0;
-    bottom:   -45%;
-    background-color: #eeaabc; 
+    border: #C7E6E8;
+    position: absolute;
+    top: 40%; 
+    left: 42.5%; 
+    background-color: #C7E6E8; 
 
 }
 
-#start:hover{
-    background-color: #1061e4;
-}
-
-*/

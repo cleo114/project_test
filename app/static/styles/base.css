@@ -107,17 +107,30 @@ ul li a:hover .name span{
 }
 
 #middlebox {
-	position: absolute;
+
 	width: 500px;
-	height:350px;
+	/* height: 50%; */
 	background-color: #e9b000;
 	padding: 50px;
-	margin: 10px;
-	transform: translate(65%, 40%);
+	margin: auto;
+	position: relative; 
+	/* transform: translate(-50%, -50%);
+	left: 50%;
+	top: 55%; */
+	bottom: -200px;
+	align-content: center;
 	border-radius: 10px; 
   	justify-content: center;
 	box-shadow: 0 10px 30px rgba(0,0,0,.3);
+	overflow-y:scroll;
+
   }
+
+
+
+
+
+
 
 #info_font {
 	font-family: "Lucida Console", monospace;
@@ -131,9 +144,9 @@ table {
 	border-spacing: 0 5px;
 	text-align: center;
 	counter-reset: section;
-	overflow-y:scroll;
-	height:360px;
+	height:300px;
 	display:block;
+
  }
   
   .count:before {
@@ -196,3 +209,9 @@ table {
 	  tbody tr:nth-child(even) {
 		background-color: #D2E8EA;
 	  }
+
+
+#gameDiv { 
+	 width: 100%; 
+	margin: auto;
+}

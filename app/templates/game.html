@@ -1,41 +1,31 @@
 {% extends "base.html" %}
 
 
-{% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Color Guess</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/game.css') }}">
-    <link rel="icon" href="logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-<body id="body">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+{% block game %}
+<body>
    <div class="top">
-       <button id="start" onclick="startGame()">Start</button>
+        <button id="start" onclick="startGame()"> <i id="playButton" class="fa fa-play" style="font-size: 150px; color: #e9b000;"></i> </button>
+    </div>
+
+    <div id="colourLabels">
         <div id="color1" class="colorText color1"></div>
         <div id="color2" class="colorText color2"></div>
     </div>
     
-    
-    <div id = "GameBoard"></div>
 
+
+
+    
+    <div id = "GameBoard" style="display:none"></div>
     <div id="resultsContainer">
     <span id="correct"></span> 
     <span id="time"></span>
     </div>
 
+
+
 <script src="{{url_for('static', filename='javascript/game.js')}}"></script>
-
 </body>
-
-
-
-</html>
 
 {% endblock %}
 

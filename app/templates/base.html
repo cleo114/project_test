@@ -2,11 +2,12 @@
 <!doctype html>
     <head>
         <title>Colour Match</title>
-        <!--<link rel="icon" href="icon_path" type="image/icon type"> used to add icon to title part-->
+        <link rel="icon" href="{{url_for('static',filename='/img/logo2.png')}}" type="image/icon type"> 
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base.css') }}">
-  
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game.css') }}">  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     </head>
     <body>
         <ul>
@@ -68,13 +69,10 @@
             {% endif %}
         </ul>
             
-        <div id = 'middlebox' class = 'center'>
-            
-        </div>
-        {% block content %} {% endblock %}
-        {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
+        <div id = 'middlebox' class = 'center'>  {% block content %}{% endblock %} </div>
+        <div id = "gameDiv"> {% block game %}{% endblock %} </div>
         
+       
+       
     </body>
 </html>
