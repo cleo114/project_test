@@ -1,85 +1,79 @@
 var colors = ["Blue", "Red", "Green", "Yellow"];  
-var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Orange", "HotPink", "Purple", "powderblue"]; 
+//var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Orange", "HotPink", "Purple", "powderblue", "aqua"]; 
+//var extraColors = ["DarkOrange", "HotPink", "DarkOrchid", "SeaShell", "MediumTurquoise","lightsalmon", "khaki", "powderblue", "purple", "Orange", "lightcyan"];
 //var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "linen", "Grey", "lightgrey", "mintcream"]; 
 //var extraColors = ["Blue", "Red", "Green", "Yellow"] //"Blue", "Red", "Green", "Yellow","Blue"]
+//var extraColors = ["Pink", "Purple", "Orange", "Turquoise"]
+//var extraColors = ["white", "lightgrey", "#f2f2f2", "#e6e6e6", "#d9d9d9"]; 
+
+var extraColors = ["#ff4d4d", "#ff6666", "#ff3333", "#ff5c33", //red
+                   "#00e600", "#70db70", "#00cc00", "#00b33c", //green
+                   "#4d79ff", "#668cff", "#1a53ff", "#4d4dff", //blue
+                   "#ffff80", "#ffffb3", "#ffff4d", "#ffff66"]; //yellow
+
 
 var colorsLength = colors.length; 
 var extraColorsLength = extraColors.length; 
-var clicks = 0;
-var gridSize = 2; 
-    
-
-function startGame(){
-    //setInterval(timer, 1000);
-    reset();
-
-}
-
-var checkmark = document.getElementById("checkmark");
-var wrong = document.getElementById("wrong");
+var gridSize = 1; 
+var gridIncrementor = 2; // grid grows after achieving this many correct answers at the previous grid size
+var results = document.getElementById('resultsContainer'); 
 var correct = document.getElementById("correct");
 var correctInt = 0; // keeps track of no. of correct guesses 
+var answer = 'correct'; 
+var board = document.getElementById('GameBoard'); 
+    
 
+function startGame() {
+    setInterval(timer, 1000);
+    reset();
+}
 
-function checkColor(color, correctAnswer){
-    console.log("You clicked", color); 
+function checkColor(color, correctAnswer){ 
     if(color===correctAnswer){
-        console.log("Thats correct"); 
         correctInt++;
-        checkmark.classList.add("fadeAway"); // add class 'fadeAway' -> i.e. correct mark fades away 
-    }else{
-        wrong.classList.add("fadeAway"); // wrong mark fades away
+        $('#resultsContainer').css('background-color', 'lightgreen'); 
+        //results.style.backgroundColor = "LightGreen"; 
+        answer = 'correct'; 
+    } else { 
+        console.log("you clicked ", color, " but the answer was ", correctAnswer); 
+        //results.style.backgroundColor = "#ff3333"; 
+        $('#resultsContainer').css('background-color', '#ff3333'); 
+        answer = 'incorrect'; 
     }
-    setTimeout(function(){
-        checkmark.classList.remove("fadeAway");
-        wrong.classList.remove("fadeAway");
-    },500); // runs the function after 0.5 seconds (removes added classes)
     reset(); 
     correct.innerHTML = correctInt; // update #correct span element with no. of correct guesses 
 }
 
-function makeBoard(numCorrect) { 
 
-    if (numCorrect%2 == 0) { 
+function makeBoard() { 
 
-        if (numCorrect != 0) { 
-            gridSize++; 
-            } 
+    gridSize++; 
+    var divsToAdd; 
 
-        //console.log("grid size: ", gridSize); 
-        var bod = document.getElementById('body'); 
-        bod.removeChild(document.getElementById('GameBoard')); 
-        var newBoard = document.createElement('div'); 
-        newBoard.setAttribute('id', 'GameBoard'); 
-        bod.appendChild(newBoard); 
+    if (gridSize == 2) { 
+        divsToAdd = 4; 
+    } else {
+        divsToAdd = gridSize**2 - (gridSize - 1)**2
+    }
 
-        for (let i = 0; i < gridSize*gridSize; i++ ) { 
-            var newSqu = document.createElement('div'); 
-            newBoard.appendChild(newSqu); 
-            newSqu.style.width = (300/gridSize).toString() + "px"; 
-            newSqu.style.height = (300/gridSize).toString() + "px"; 
-        }  
+    for (let i = 0; i < divsToAdd; i++) { 
+        var newSqu = document.createElement('div'); 
+        board.appendChild(newSqu); 
+    }
 
-        newBoard.style.gridTemplateColumns = "auto ".repeat(gridSize); 
-        newBoard.style.gridTemplateRows = "auto ".repeat(gridSize); 
-    } 
+    $('#GameBoard div').css({'width': (300/gridSize).toString() + "px", 'height' : (300/gridSize).toString() + "px"})
+    $('#GameBoard div').addClass('color'); 
+    
+    board.style.gridTemplateColumns = "auto ".repeat(gridSize); 
+    board.style.gridTemplateRows = "auto ".repeat(gridSize); 
+
 }
-
-// if the length is > 4: 
-// for the first four iterations, generate a random index from colors
-// generate another random index from allSquares
-// assign the random index from colors (i.e. the color) to the random index from allSquares
-// keep track of the index already assigned in allSquares
-// when you encounter that index, ignore it
-// assign another random color to the correct index 
-
-
 
 function setColourAndEvent(divElement, squCol, corAns) { 
 
     divElement.style.backgroundColor = squCol; 
-    divElement.classList.add("color"); 
-    let onclick = "checkColor('".concat(squCol,"','",corAns,"')");
+    let onclick = "checkColor('" + squCol + "','" + corAns + "')"; 
+    //let onclick = "checkColor('".concat(squCol,"','",corAns,"')");
     divElement.setAttribute("onclick", onclick);
 
 }
@@ -102,11 +96,10 @@ function defineColours(corAns) {
 
         // create a new list with all the possible indexes for allSquares
         // generate a random index from this list by generating a number between 0 and the length
-        // slice the list to remove the index 
-        // add the chosen index to a list to keep track of what has already been seen 
+        // splice the list to remove the index 
         // set the colour and event for the chosen index: 
         // ->for the first four iterations, only choose options from the colors list
-        //      -> slice the chosen color so that the next choice is unique 
+        //      -> splice the chosen color so that the next choice is unique 
         // ->for the remaining iterations, can choose from the extraColors list as well 
         // repeat; can guarantee unique index because we have removed the previous one from the list of possible indexes 
 
@@ -121,37 +114,38 @@ function defineColours(corAns) {
             // choose square from Grid: 
             var randomIndex = Math.floor(Math.random()*possibleIndexes.length);
             var chosenIndex = possibleIndexes[randomIndex]; 
-            //console.log(possibleIndexes); 
-            //console.log('random square index chosen: ', chosenIndex); 
             possibleIndexes.splice(randomIndex,1); 
 
             // choose colour: 
             if (i < colorsLength) { 
                 var colourIndex = Math.floor(Math.random()*newColors.length); 
                 var squareColour = newColors[colourIndex]; 
-                //console.log('square colour chosen: ', squareColour); 
                 newColors.splice(colourIndex, 1); 
             } else { 
                 var colourIndex = Math.floor(Math.random()*extraColorsLength); 
                 var squareColour = extraColors[colourIndex]; 
-                //console.log("chosen index: ", chosenIndex, "square colour: ", squareColour); 
             }
+            //console.log("chosen index: ", chosenIndex, "square colour: ", squareColour); 
             setColourAndEvent(allSquares[chosenIndex], squareColour, corAns); 
         }
     }
 } 
 
-function reset(){
 
-    console.log("correct guesses: ", correctInt); 
+
+function reset(){
 
     var random1 = Math.floor(Math.random()*2); // either 0 or 1 
     if(random1==0){
         var color1 = document.getElementById("color1"); // top prompt is color1
         var color2 = document.getElementById("color2"); // bottom prompt is color2
+        //var color1 = $('#color1'); 
+        //var color2 = $('#color2'); 
     }else{
         var color2 = document.getElementById("color1"); // top prompt is color2
         var color1 = document.getElementById("color2"); // bottom prompt is color1
+        //var color1 = $('#color2'); 
+        //var color2 = $('#color1'); 
     }
    
     // NOTE: color1 and color2 are javascript VARIABLES not html tags! 
@@ -159,10 +153,10 @@ function reset(){
     // Or, if the bottom prompt is 'color1' or 'color2'
 
     document.getElementById("start").style.display = "none";
-    var random = Math.floor(Math.random() * colorsLength); // random no. between 0 and 3
-    var correctAnswer = colors[random]; // choose colour randomly from list
-    color1.innerHTML = correctAnswer; // set TEXT of first 'colour prompt' to be correct colour
-    color2.style.color = correctAnswer; // set LITERAL COLOUR of second 'colour prompt' to be correct colour
+    var random = Math.floor(Math.random() * colorsLength); 
+    var correctAnswer = colors[random]; 
+    color1.innerHTML = correctAnswer; 
+    color2.style.color = correctAnswer; 
     // NOTE: color1 prompt always has correct TEXT 
     //       color2 prompt always has correct COLOUR
 
@@ -173,71 +167,23 @@ function reset(){
 
     // list index: [ 0 , 1 , 2 , 3 ]
 
-    if(random+1==4){
-        color2.innerHTML = colors[random-3]; // if index=3, go to (3)-(3)=0
-    }else{
-        color2.innerHTML = colors[random+1]; // increment UP
-    }
-    if(random-1==-1){
-        color1.style.color = colors[random+3]; // if index=0, go to (0)+(3)=3
-    }else{
-        color1.style.color = colors[random-1]; // increment DOWN
-    }
-
+    var coloursCopy = colors.slice(); 
+    coloursCopy.splice(coloursCopy.indexOf(correctAnswer),1); 
+    const rand1 = Math.floor(Math.random()*coloursCopy.length); 
+    color2.innerHTML = coloursCopy[rand1]; 
+    coloursCopy.splice(rand1, 1); 
+    color1.style.color = coloursCopy[Math.floor(Math.random()*coloursCopy.length)]; 
+    
     color1.style.display = "block";
     color2.style.display = "block";
-
-    makeBoard(correctInt); 
+    
+    if (correctInt%gridIncrementor == 0 && answer == 'correct') { 
+        makeBoard(); 
+    } 
     defineColours(correctAnswer); 
+    correct.innerHTML = correctInt; 
 
 } 
-
-
-    /*
-    for (let i = 0; i < colors.length; i++) {
-        document.getElementById(colors[i]).addEventListener("click", function() { 
-            if(color===correctAnswer){
-                correctInt++;
-                checkmark.classList.add("fadeAway"); // add class 'fadeAway' -> i.e. correct mark fades away 
-            }else{
-                wrong.classList.add("fadeAway"); // wrong mark fades away
-            }
-            setTimeout(function(){
-                checkmark.classList.remove("fadeAway");
-                wrong.classList.remove("fadeAway");
-            },500); // runs the function after 0.5 seconds (removes added classes)
-            reset(); 
-            correct.innerHTML = correctInt; // update #correct span element with no. of correct guesses 
-        })
-        
-    }
-
-    /* 
-    addClick("Blue", correctAnswer);
-    addClick("Red", correctAnswer);
-    addClick("Green", correctAnswer);
-    addClick("Yellow", correctAnswer);
-    */ 
-
-
-/*
-function addClick(color, correctAnswer){
-    var colorSpan = document.getElementById(color); // pass colors as strings into function and then retrieve corresponding element
-    let onclick = "checkColor('".concat(color,"','",correctAnswer,"')");
-    // onclick is a function call e.g. checkColor('Blue','Red') where red is the correct answer
-
-    var col = color; 
-    var ans = correctAnswer; 
-    // console.log(col, ans); 
-    // colorSpan.addEventListener("click", function() { checkColor(col, ans); } ); 
-
-    // colorSpan.addEventListener("click", function() { onclick } ) <- DOESNT WORK
-    colorSpan.setAttribute("onclick", onclick); 
-    // set event listener for 'onclick' attribute which calls checkColor(color, correctAnswer) function
-}
-*/ 
-
-
 
 var countdown = 30;
 function timer(){

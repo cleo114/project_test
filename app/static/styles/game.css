@@ -1,10 +1,31 @@
-
+/*
 *{
-    padding: 0;
+    /*padding: 0;
     margin: 0;
     outline: none;
     overflow-x: none;
-    background-color: #89CFF0;
+}
+*/
+
+#resultsContainer { 
+    display: grid; 
+    grid-template-columns: auto auto;
+    height: 50px; 
+    width: 300px; 
+    align-content: center;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10%; 
+}
+
+#time { 
+    text-align: center;
+    font-size: 30px;
+}
+
+#correct {
+    text-align: center; 
+    font-size: 30px;
 }
 
 .header {
@@ -20,6 +41,7 @@ body{
     max-width: 300px;
     margin: auto;
     font-family: sans-serif;
+    background-color: #89CFF0;
 
 }
 
@@ -37,12 +59,6 @@ body{
 
 }
 
-/*
-#GameBoard > div { 
-    width: 100px; 
-    height: 100px; 
-}*/
-
 .color{
     width: 150px;
     height: 150px;
@@ -57,22 +73,6 @@ body{
 .color:hover{
     transform: scale(0.9);
 }
-
-
-/*
-.blue{
-    background-color: blue;
-}
-.red{
-    background-color: red;
-}
-.green{
-    background-color: green;
-}
-.yellow{
-    background-color: yellow;
-}
-*/
 
 .top{
     width: 300px;
@@ -89,51 +89,6 @@ body{
     bottom:   -95%;
 }
 
-#time{
-    position: absolute;
-    bottom: 10px;
-    left: 60%;
-    padding: 0px; 
-    margin: 0px; 
-    text-align: center;
-    font: 3rem sans-serif; 
-}
-
-#correct{
-    position: absolute;
-    color: darkgreen;
-    left: 40%; 
-    bottom: 10px;
-    font: 3rem sans-serif; 
-    padding: 0px; 
-    margin: 0px; 
-}
-
-#checkmark, #wrong{
-    pointer-events: none;
-    position: absolute;
-    width: 10%;
-    left: 45%;
-    top: 10%;
-    opacity: 0;
-}
-@media only screen and (max-width: 600px){
-    #checkmark, #wrong{
-        position: absolute;
-        width: 50%;
-        left: 25%;
-        top: 10%;
-    }
-}
-
-.fadeAway{
-    animation: fadeAway 500ms;
-}
-@keyframes fadeAway{
-    0%{opacity: 1}
-    50%{opacity: 1}
-    100%{opacity: 0}
-}
 #start{
     font-size: 2rem;
     height: 100px;
