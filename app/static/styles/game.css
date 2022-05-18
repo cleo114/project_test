@@ -67,7 +67,7 @@ body{
     width: 150px;
     height: 150px;
     border-radius: 15%;
-    border: 2px solid rgb(242, 238, 238);
+    border: 2px solid white; 
     box-sizing: border-box; 
     position: relative;
     right:    0;

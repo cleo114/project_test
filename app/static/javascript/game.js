@@ -1,4 +1,5 @@
 var colors = ["Blue", "Red", "Green", "Yellow"];  
+//var colors = ["Pink", "Purple", "Aqua", "Lavender"]; 
 //var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "Orange", "HotPink", "Purple", "powderblue", "aqua"]; 
 //var extraColors = ["DarkOrange", "HotPink", "DarkOrchid", "SeaShell", "MediumTurquoise","lightsalmon", "khaki", "powderblue", "purple", "Orange", "lightcyan"];
 //var extraColors = ["Blue", "Red", "Green", "Yellow", "White", "linen", "Grey", "lightgrey", "mintcream"]; 
@@ -13,10 +14,11 @@ var extraColors = ["#ff4d4d", "#ff6666", "#ff3333", "#ff5c33", //red
 var colorsLength = colors.length; 
 var extraColorsLength = extraColors.length; 
 var gridSize = 1; //note: starts at 1 since first call to makeBoard() will increment it to 2
-var gridIncrementor = 2; // grid grows after achieving this many correct answers at the previous grid size
+var gridIncrementor = 3; // grid grows after achieving this many correct answers at the previous grid size
 var correctInt = 0; // keeps track of no. of correct guesses 
 var answer = 'correct'; 
 var board = document.getElementById('GameBoard'); 
+var countdown = 30;
     
 
 function startGame() {
@@ -106,17 +108,18 @@ function defineColours(corAns) {
             var randomIndex = Math.floor(Math.random()*possibleIndexes.length);
             var chosenIndex = possibleIndexes[randomIndex]; 
             possibleIndexes.splice(randomIndex,1); 
+            var colourIndex; 
+            var squareColour; 
 
             // choose colour: 
             if (i < colorsLength) { 
-                var colourIndex = Math.floor(Math.random()*newColors.length); 
-                var squareColour = newColors[colourIndex]; 
+                colourIndex = Math.floor(Math.random()*newColors.length); 
+                squareColour = newColors[colourIndex]; 
                 newColors.splice(colourIndex, 1); 
             } else { 
-                var colourIndex = Math.floor(Math.random()*extraColorsLength); 
-                var squareColour = extraColors[colourIndex]; 
+                colourIndex = Math.floor(Math.random()*extraColorsLength); 
+                squareColour = extraColors[colourIndex]; 
             }
-            //console.log("chosen index: ", chosenIndex, "square colour: ", squareColour); 
             setColourAndEvent(allSquares[chosenIndex], squareColour, corAns); 
         }
     }
@@ -140,7 +143,7 @@ function reset(){
     const rand2 = Math.floor(Math.random()*coloursCopy.length); 
     const colourChoice = coloursCopy[rand2];
 
-    var random1 = Math.floor(Math.random()*2); // either 0 or 1 
+    const random1 = Math.floor(Math.random()*2); // either 0 or 1 
 
     if(random1==0){
         $('#color1').text(correctAnswer); 
@@ -165,7 +168,6 @@ function reset(){
     $('#correct').text(correctInt); 
 } 
 
-var countdown = 30;
 function timer(){
     document.getElementById("time").innerHTML = countdown;
     if(countdown==0){
