@@ -10,40 +10,33 @@ var extraColors = ["#ff4d4d", "#ff6666", "#ff3333", "#ff5c33", //red
                    "#00e600", "#70db70", "#00cc00", "#00b33c", //green
                    "#4d79ff", "#668cff", "#1a53ff", "#4d4dff", //blue
                    "#ffff80", "#ffffb3", "#ffff4d", "#ffff66"]; //yellow
-
-
 var colorsLength = colors.length; 
 var extraColorsLength = extraColors.length; 
-var gridSize = 1; 
+var gridSize = 1; //note: starts at 1 since first call to makeBoard() will increment it to 2
 var gridIncrementor = 2; // grid grows after achieving this many correct answers at the previous grid size
-var results = document.getElementById('resultsContainer'); 
-var correct = document.getElementById("correct");
 var correctInt = 0; // keeps track of no. of correct guesses 
 var answer = 'correct'; 
 var board = document.getElementById('GameBoard'); 
     
 
 function startGame() {
-    setInterval(timer, 1000);
+    //setInterval(timer, 1000);
     reset();
 }
 
 function checkColor(color, correctAnswer){ 
-    if(color===correctAnswer){
+    if(color==correctAnswer){
         correctInt++;
         $('#resultsContainer').css('background-color', 'lightgreen'); 
-        //results.style.backgroundColor = "LightGreen"; 
         answer = 'correct'; 
     } else { 
         console.log("you clicked ", color, " but the answer was ", correctAnswer); 
-        //results.style.backgroundColor = "#ff3333"; 
         $('#resultsContainer').css('background-color', '#ff3333'); 
         answer = 'incorrect'; 
     }
     reset(); 
-    correct.innerHTML = correctInt; // update #correct span element with no. of correct guesses 
+    $('#correct').text(correctInt);  
 }
-
 
 function makeBoard() { 
 
@@ -58,12 +51,11 @@ function makeBoard() {
 
     for (let i = 0; i < divsToAdd; i++) { 
         var newSqu = document.createElement('div'); 
+        newSqu.classList.add('color'); 
         board.appendChild(newSqu); 
     }
 
-    $('#GameBoard div').css({'width': (300/gridSize).toString() + "px", 'height' : (300/gridSize).toString() + "px"})
-    $('#GameBoard div').addClass('color'); 
-    
+    $('#GameBoard div').css({'width': (300/gridSize).toString() + "px", 'height' : (300/gridSize).toString() + "px"}); 
     board.style.gridTemplateColumns = "auto ".repeat(gridSize); 
     board.style.gridTemplateRows = "auto ".repeat(gridSize); 
 
@@ -72,9 +64,7 @@ function makeBoard() {
 function setColourAndEvent(divElement, squCol, corAns) { 
 
     divElement.style.backgroundColor = squCol; 
-    let onclick = "checkColor('" + squCol + "','" + corAns + "')"; 
-    //let onclick = "checkColor('".concat(squCol,"','",corAns,"')");
-    divElement.setAttribute("onclick", onclick);
+    divElement.setAttribute("onclick","checkColor('" + squCol + "','" + corAns + "')"); 
 
 }
 
@@ -82,10 +72,11 @@ function defineColours(corAns) {
 
     var allSquares = document.getElementById("GameBoard").childNodes;
     var newColors = colors.slice(); 
+    var totalSquares = allSquares.length; 
 
-    if (allSquares.length == colorsLength) { 
+    if (totalSquares == colorsLength) { 
 
-        for (let i = 0; i < allSquares.length; i++) { 
+        for (let i = 0; i < totalSquares; i++) { 
             randomIndex = Math.floor(Math.random()*newColors.length); 
             var squareColour = newColors[randomIndex]; 
             newColors.splice(randomIndex, 1); 
@@ -105,11 +96,11 @@ function defineColours(corAns) {
 
         var possibleIndexes = []; 
 
-        for (let i=0; i<allSquares.length;i++) { 
+        for (let i=0; i<totalSquares;i++) { 
             possibleIndexes.push(i); 
         }
  
-        for (let i = 0; i < allSquares.length; i++) { 
+        for (let i = 0; i < totalSquares; i++) { 
 
             // choose square from Grid: 
             var randomIndex = Math.floor(Math.random()*possibleIndexes.length);
@@ -131,58 +122,47 @@ function defineColours(corAns) {
     }
 } 
 
-
-
 function reset(){
 
-    var random1 = Math.floor(Math.random()*2); // either 0 or 1 
-    if(random1==0){
-        var color1 = document.getElementById("color1"); // top prompt is color1
-        var color2 = document.getElementById("color2"); // bottom prompt is color2
-        //var color1 = $('#color1'); 
-        //var color2 = $('#color2'); 
-    }else{
-        var color2 = document.getElementById("color1"); // top prompt is color2
-        var color1 = document.getElementById("color2"); // bottom prompt is color1
-        //var color1 = $('#color2'); 
-        //var color2 = $('#color1'); 
-    }
-   
-    // NOTE: color1 and color2 are javascript VARIABLES not html tags! 
-    // We choose randomly each time whether the top prompt is 'color1' or 'color2' 
-    // Or, if the bottom prompt is 'color1' or 'color2'
+    $('#start').css('display','none'); 
 
-    document.getElementById("start").style.display = "none";
+    // randomly choose correct answer: 
     var random = Math.floor(Math.random() * colorsLength); 
     var correctAnswer = colors[random]; 
-    color1.innerHTML = correctAnswer; 
-    color2.style.color = correctAnswer; 
-    // NOTE: color1 prompt always has correct TEXT 
-    //       color2 prompt always has correct COLOUR
-
     console.log("correct ans: ", correctAnswer); 
 
-    // Now, we need to change the COLOUR of colour1 prompt 
-    // and the TEXT of color2 prompt 
-
-    // list index: [ 0 , 1 , 2 , 3 ]
-
+    // randomly choose text and colour for the attributes which aren't the correct answer
     var coloursCopy = colors.slice(); 
     coloursCopy.splice(coloursCopy.indexOf(correctAnswer),1); 
     const rand1 = Math.floor(Math.random()*coloursCopy.length); 
-    color2.innerHTML = coloursCopy[rand1]; 
+    const textChoice = coloursCopy[rand1]; 
     coloursCopy.splice(rand1, 1); 
-    color1.style.color = coloursCopy[Math.floor(Math.random()*coloursCopy.length)]; 
-    
-    color1.style.display = "block";
-    color2.style.display = "block";
+    const rand2 = Math.floor(Math.random()*coloursCopy.length); 
+    const colourChoice = coloursCopy[rand2];
+
+    var random1 = Math.floor(Math.random()*2); // either 0 or 1 
+
+    if(random1==0){
+        $('#color1').text(correctAnswer); 
+        $('#color2').css('color', correctAnswer); 
+        $('#color2').text(textChoice); 
+        $('#color1').css('color', colourChoice); 
+    } else {
+        $('#color2').text(correctAnswer); 
+        $('#color1').css('color', correctAnswer); 
+        $('#color1').text(textChoice); 
+        $('#color2').css('color', colourChoice); 
+    }
+   
+    $('#color1').css('display', 'block'); 
+    $('#color2').css('display', 'block'); 
     
     if (correctInt%gridIncrementor == 0 && answer == 'correct') { 
         makeBoard(); 
     } 
-    defineColours(correctAnswer); 
-    correct.innerHTML = correctInt; 
 
+    defineColours(correctAnswer); 
+    $('#correct').text(correctInt); 
 } 
 
 var countdown = 30;
@@ -196,7 +176,6 @@ function timer(){
     }
     countdown--;
 }
-
 
 function pOst() {
     $.ajax({
