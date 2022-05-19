@@ -127,8 +127,16 @@ ul li a:hover .name span{
   }
 
 
-
-
+#sharing { 
+	background-color: #e9b000;
+	box-shadow: 0 10px 30px rgba(0,0,0,.3);
+	border-radius: 10px; 
+	width: 150px;
+	position: relative; 
+	bottom: 175px;
+	left: 30px;
+	padding: 20px;
+}
 
 
 

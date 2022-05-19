@@ -35,3 +35,29 @@
 
 {% endblock %}
 
+
+
+
+{%block sharing%}
+
+
+<script>
+
+function copyTextFunc() {
+
+    var copyText = document.querySelector('#high_sc').innerText;
+    navigator.clipboard.writeText(copyText);
+ };
+
+</script>
+
+
+
+<p id = 'high_sc'> My highest score at Colour Match is {{highest_score[0]}}.
+    Play the game today and try beat me!
+</p> 
+<button id="copy_btn" onclick=copyTextFunc()>Click Here to Share</button>
+
+
+{% endblock %}
+
