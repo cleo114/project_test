@@ -1,5 +1,3 @@
-# project_test
-
 # COLOUR MATCH - CITS3403 Agile Web Development Project
 
 ## Things we need to add to README.MD
