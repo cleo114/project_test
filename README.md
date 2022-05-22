@@ -1,17 +1,12 @@
 # COLOUR MATCH - CITS3403 Agile Web Development Project
 
-## Things we need to add to README.MD
-#### the purpose of the web application, explaining the design of the game 
-#### the architecture of the web application.
-#### describe how to launch the web application.
-#### describe some unit tests for the web application, and how to run them.
-#### Include commit logs, showing contributions and review from both contributing students
+## Purpose 
 
 The aim of colour match is to guess as many colour matches in 30 seconds. There will be two words shown and you must select the colour box that is similar to both of them. As you guess correctly, the number of boxes will increase and the position of the boxes will move. In some rounds, there will be multiple boxes of the same colour e.g. yellow - you must select the box that matches the shade of the word shown in order to be correct. 
 
 You can compete with your friends for the high score and share your achievements!
 
-## Architecture
+## Getting Set Up
 
 
 ### Prerequisites
@@ -41,12 +36,18 @@ These are unit tests for the User class. There are also tests to check whether t
 
 ## Authors
 
-**Lara Posel, Cleo Sabath and Christine Harcourt-Cooke** - *Initial work* - [drtnf](https://github.com/drtnf)( need to change to ours)
+**Lara Posel, Cleo Sabath and Christine Harcourt-Cooke**
 
 ## Acknowledgments
+-  W3Schools Tutorials: https://www.w3schools.com/ 
+- Miguel Grinberg's Flask Mega Tutorial: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world 
+- Tom Smoker's GitHub Repositories: 'basic_flask_template' and 'workshop' 
+- drtnf's GitHub Repository: 'cits3403-pair-up' 
+- Study Tonight Navigation Bar Tutorial: https://www.studytonight.com/post/create-modern-navigation-bar-with-icons-using-html-css-and-hover-effect 
+- KnifeCircus Colour Game - How to code JavaScript Games: https://www.youtube.com/watch?v=p3f5X2duLO4&ab_channel=KnifeCircus 
 
-W3Schools Tutorials: https://www.w3schools.com/
-Miguel Grinberg's Flask Mega Tutorial: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-Tom Smoker's GitHub Repositories: 'basic_flask_template' and 'workshop' 
-drtnf's GitHub Repository: 'cits3403-pair-up'
 
+
+## Contributions 
+
+Please refer to commitlogs.txt file for our commit logs and contributions towards this app
