@@ -8,7 +8,6 @@ You can compete with your friends for the high score and share your achievements
 
 ## Getting Set Up
 
-
 ### Prerequisites
 
 Requires python3, flask, venv, and sqlite
@@ -34,6 +33,10 @@ To run unit tests
 
 These are unit tests for the User class. There are also tests to check whether the templates load correctly, i.e. the server responds with the 200 code. The tests check whether the password hash is functioning as expected, whether all the attributes defined in the classes match the user inputted data and validation including checking the two passwords match. 
 
+## Architecture 
+
+For the client-side (front end) of the application HTML, CSS and JavaScript were used to allow communication between the user interface and browser. AJAX and jQuery were also used to retrieve data from the server asynchronously with ease. For the server-side (back end) Python and Flask were used, along with SQLite for the database.  Jinja was used as a template engine to dynamically add content to the webpage. All the components work together to allow successful interactions between the server and client side.
+
 ## Authors
 
 **Lara Posel, Cleo Sabath and Christine Harcourt-Cooke**
@@ -46,8 +49,6 @@ These are unit tests for the User class. There are also tests to check whether t
 - Study Tonight Navigation Bar Tutorial: https://www.studytonight.com/post/create-modern-navigation-bar-with-icons-using-html-css-and-hover-effect 
 - KnifeCircus Colour Game - How to code JavaScript Games: https://www.youtube.com/watch?v=p3f5X2duLO4&ab_channel=KnifeCircus 
 
-
-
 ## Contributions 
 
-Please refer to commitlogs.txt file for our commit logs and contributions towards this app
+Please refer to contributions.txt file for our commit logs and contributions towards this app
