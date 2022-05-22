@@ -13,19 +13,6 @@ You can compete with your friends for the high score and share your achievements
 
 ## Architecture
 
-## Getting Started
-
-Activate the python virtual environment:
-`$source virtual-environment/bin/activate`
-
-To run the app:
-`$flask run`
-
-To stop the app:
-`$^C`
-
-To exit the environment:
-`$deactivate`
 
 ### Prerequisites
 
@@ -35,44 +22,31 @@ Requires python3, flask, venv, and sqlite
 
 Install python3, sqlite3
 
-1. Set up a virtual environment:
- - use pip or another package manager to install virtualenv package `pip install virtualenv`
- - start the provided virtual environment
-   `source virtual-environment/bin/activate`
- - This should include flask and all the required packages
-2. Install sqlite
- - [Windows instructions](http://www.sqlitetutorial.net/download-install-sqlite/)
- - In \*nix, `sudo apt-get install sqlite`
-3. Build the database: `flask db init`
-4. `flask run`
-
-This should start the app running on localhost at port 5000, i.e. [http://localhost:5000/index](http://localhost:5000/index)
+1. Set up a virtual environment with the following terminal commands:
+ - python3 -m venv venv
+ - source venv/bin/activate
+   Now, the virtual environment is running. 
+2. Install the following packages using the pip install command: 
+ - flask, flask-wtf, flask-sqlalchemy, flask-migrate, flask-login, email_validator, python-dotenv. 
+3. Install sqlite using the commands appropriate for your operating system. Sqlite is preinstalled on Mac OS.  
+4. Use the 'flask run' to run the server, which is located at http://127.0.0.1:5000. 
+5. To exit, use the control-c keyboard shortcut and 'deactivate' terminal command to the close the server and shut down the virtual environment. 
 
 ## Running the tests
 
 To run unit tests
-`python -m tests.unittest`
+`python -m tests/test_models.py`
 
-To run selenium tests, make sure that you have the 
-appropriate web driver installed. In this case it should be geckodriver for Firefox, 
-and it assumes that it is installed in the test directory.
-Then start the webserver in TestingConfig, and run
-`python -m tests.systemtest`
-
-## Deployment
-
-via localhost
-
-## Built With
-
-vim and git
-
-## Contributing
-
-## Versioning
+These are unit tests for the User class. There are also tests to check whether the templates load correctly, i.e. the server responds with the 200 code. The tests check whether the password hash is functioning as expected, whether all the attributes defined in the classes match the user inputted data and validation including checking the two passwords match. 
 
 ## Authors
 
 **Lara Posel, Cleo Sabath and Christine Harcourt-Cooke** - *Initial work* - [drtnf](https://github.com/drtnf)( need to change to ours)
 
 ## Acknowledgments
+
+W3Schools Tutorials: https://www.w3schools.com/
+Miguel Grinberg's Flask Mega Tutorial: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+Tom Smoker's GitHub Repositories: 'basic_flask_template' and 'workshop' 
+drtnf's GitHub Repository: 'cits3403-pair-up'
+
