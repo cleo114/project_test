@@ -1,97 +1,78 @@
-/*
-*{
-    /*padding: 0;
-    margin: 0;
-    outline: none;
-    overflow-x: none;
-}
-*/
-
 
 #resultsContainer { 
-    display: grid; 
-    grid-template-columns: auto auto;
+    display: grid; /* sets results into grid */
+    grid-template-columns: auto auto; /* sets the size of the columns, and how many columns in a grid layout*/
     height: 7% ;
     width: 300px; 
     align-content: center;
     border-radius: 10px;
     margin:auto;
-    /* position: absolute;
-    left:50%;
-    bottom:1%;
-    transform: translate(-50%,-50%); */
     position: relative;
-    bottom:50px;
-
-
+    bottom:50px; /* set to be 50px from the bottom */
 
 }
 
 #time { 
+/* sets timer counter to be center and font size 30px */
     text-align: center;
     font-size: 30px;
 }
 
-#correct {
+#correct{
+/* sets correct counter to be center and font size 30px */
     text-align: center; 
     font-size: 30px;
 }
 
 .header {
-	padding: 5px;
-	text-align: center;
+    /* might need to delete this */
+    padding: 5px;
+    text-align: center;
     position:absolute;
     left:5px;
     right:5px;
 
   }
 
-
-
 #GameBoard { 
     margin: auto;
     height: 300px; 
     width: 300px; 
-    gap: 1px;
+    gap: 1px; /* gap between grid lines = 1px */
     max-width: 300px;
     max-height: 300px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* padding and border are included in the width and height */
     padding: 100px 0px; 
-    /* position: fixed;
-    left:50%;
-    top:50%;
-    transform: translate(-50%,-50%); */
     position: relative;
     bottom: 175px;
 } 
 
-
-
 .color{
+    /* refers to colour box */
     width: 150px;
     height: 150px;
     border-radius: 15%;
-    border: 2px solid white; 
+    border: 2px solid white;  /* white border around colour boxes */
     box-sizing: border-box; 
-    transition: transform 300ms;
+    transition: transform 300ms; /* transition lasts 300ms */
 }
 
 .color:hover{
-    transform: scale(0.9);
+    transform: scale(0.9); /* reduces colour box size by 0.1 */
 }
 
 .top{
+/* refers to space that two colour words are in */
     width: 300px;
     height: 200px;
-    display: grid;
-    text-align: center;
+    display: grid; /* grid layout */
+    text-align: center; 
     margin-bottom: 50px;
 }
 
 
 #color1 { 
     position: relative; 
-    /* width: 25%;  */
     left: -10px;
     font-family: "Lucida Console", monospace;
     font-size: 50px;
@@ -100,7 +81,6 @@
 
 #color2 { 
     position: relative; 
-    /* width: 25%;  */
     left: -10px; 
     top: -10px;
     font-family: "Lucida Console", monospace;
@@ -115,6 +95,7 @@
 } 
 
 #start{
+    /* set start icon to yellow with a width of 15%. Be centered 40% from the top and 42.5% to the left */
     height: 150px;
     width: 15%;
     display: block;
