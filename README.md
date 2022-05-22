@@ -20,11 +20,11 @@ Install python3, sqlite3
 1. Set up a virtual environment with the following terminal commands:
  - python3 -m venv venv
  - source venv/bin/activate
-   Now, the virtual environment is running. 
+ - Now, the virtual environment is running. 
 2. Install the following packages using the pip install command: 
  - flask, flask-wtf, flask-sqlalchemy, flask-migrate, flask-login, email_validator, python-dotenv. 
 3. Install sqlite using the commands appropriate for your operating system. Sqlite is preinstalled on Mac OS.  
-4. Use the 'flask run' to run the server, which is located at http://127.0.0.1:5000. 
+4. Use the 'flask run' command to run the server, which is located at http://127.0.0.1:5000. 
 5. To exit, use the control-c keyboard shortcut and 'deactivate' terminal command to the close the server and shut down the virtual environment. 
 
 ## Running the tests
