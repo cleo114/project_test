@@ -4,6 +4,237 @@ body{
 	padding: 0;
 	font-family: "Lucida Console", monospace; /* font style used for body */
 	background: #C7E6E8; /* body background colour */
+
+}
+
+ul{
+	position:absolute;
+	top: 8%;
+	left: 50%; /* center the navigation bar */
+	transform: translate(-50%,-50%); 
+	margin: 0;
+	padding: 20px 0; 
+	background: #008f95; /* colour of navigation bar */
+	display: flex;  /* used to set icons horizontal*/
+	border-radius: 10px; /* create curved edges */
+	box-shadow: 0 10px 30px rgba(0,0,0,.3); /* add shadow to navigation bar */
+}
+
+ul li{
+	list-style: none;
+	text-align: center;
+	display: block;
+	border-right: 1px solid rgba(0,0,0,0.2); /* add border line on right of icon*/
+}
+ul li:last-child{
+	border-right: none; /* don't add border line for last icon */
+}
+ul li a{
+	text-decoration: none;
+	padding: 0 50px;
+	display: block; /*displays an element as a block element - starts on new line and takes up full width */
+}
+
+ul li a .icon{
+	/* centers icon, sets width,height and margin */
+	width: 40px; 
+	height: 40px; 
+	text-align: center; 
+	overflow: hidden; 
+	margin: 0 auto 10px;
+	
+}
+
+ul li a .icon .fa{
+	width: 100%;
+	height: 100%;
+	line-height: 40px;
+	font-size: 34px;
+	transition: 0.5s; /* set transition effect on icon to 0.5 seconds */
+	color: #e9b000; /*colour of icon shape before hovered on */
+}
+
+
+ul li a .icon .fa:last-child{
+	color: #C7E6E8; /* colour of icon shape when hovered on */
+}
+
+ul li a:hover .icon .fa{
+	transform: translateY(-100%); /* move icon down 100% when hovered on */
+}
+ul li a .name{
+	position: relative; /* positoned relative to its normal position */
+	height: 20px; 
+	width: 100%;
+	display: block;
+	overflow: hidden;
+}
+
+ul li a .name span{
+	display: block;
+	position: relative;
+	color: #e9b000; /*colour of icon name */
+	font-size: 18px; /* size of font */
+	line-height: 20px;
+	transition: 0.5s; /* set name transition effect to 0.5s */
+	
+}
+
+ul li a .name span:before{
+	content: attr(data-text); /* Sets the content as data-text attribute */
+	position: absolute;
+	top: -100%;
+	width: 100%;
+	left: 0;
+	height: 1005;
+	color: #C7E6E8; /* Set colour of name to yellow */
+	
+}
+
+ul li a:hover .name span{
+	transform: translateY(20px); /* moves name down 20px when hovered on */
+}
+
+.logo-image{
+    /* height, width and margin of logo*/
+    width: 100px;
+    height: 70px;
+    margin-left: -30px;
+    margin-right: 120px;
+    margin-top: -2px;
+}
+
+.center{
+	text-align: center;
+}
+
+#middlebox {
+
+	width: 500px;
+	max-height: 700px;
+	background-color: #e9b000; /* Set colour of background to yellow */
+	padding: 50px;
+	margin: auto;
+	position: relative; 
+	bottom: -200px; /* sets box to be 200px from the bottom of page*/
+	align-content: center;
+	border-radius: 10px; /* Sets border to have curved corners */
+  	justify-content: center;
+	box-shadow: 0 10px 30px rgba(0,0,0,.3); 
+	overflow:scroll; /* allows excess content to be scrollable - needed for results table */
+  }
+
+#sharing { 
+	background-color: #e9b000; /* Set colour of share box to yellow */
+	box-shadow: 0 10px 30px rgba(0,0,0,.3);
+	border-radius: 10px; 
+	width: 150px;
+	position: relative; 
+	bottom: 175px;
+	left: 10%;
+	padding: 20px;
+}
+
+
+#info_font {
+	font-family: "Lucida Console", monospace; /* Set font */
+	font-size: 18px; 
+}
+
+table {
+	position:relative;
+  	top:-40px;
+	border-collapse: separate; 
+	border-spacing: 0 5px;
+	text-align: center;
+	counter-reset: section; /* Set "section" to 0 */
+	height:300px;
+	display:block;
+	overflow: scroll;
+
+ }
+  
+  .count:before {
+	/* increment "section"  by 1 */
+	counter-increment: section; 
+	content: counter(section);
+  }
+
+  thead {
+	background-color: #008f95; /* set table head to colour blue */
+	color: black; 
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+  }
+
+  h1.center{
+	text-align: center;
+  }
+
+  #resultsheader{
+	/* header starts 35px from top */
+	/* set font size, font style */
+	position:relative;
+	top:-35px;
+	font-family: "Lucida Console", monospace;
+	font-size: 20px; 
+  }
+
+  th,td {
+	border: solid 1px #000; /* black border */
+	border-style: solid none;
+	padding: 5px;
+	height: 40px
+  }
+
+ td:first-child {
+  /* first cell in table is given curved edges */
+	border-left-style: solid;
+	border-top-left-radius: 10px; 
+	border-bottom-left-radius: 10px;
+ }
+
+ td:last-child {
+ /* last cell in table is given curved edges */
+	border-right-style: solid;
+	border-bottom-right-radius: 10px; 
+	border-top-right-radius: 10px; 
+ }
+
+ th:first-child {
+ /* first header cell in table is given curved edges */
+	border-left-style: solid;
+	border-top-left-radius: 10px; 
+	border-bottom-left-radius: 10px;
+ }
+
+ th:last-child {
+ /* last header cell in table is given curved edges */
+	border-right-style: solid;
+	border-bottom-right-radius: 10px; 
+	border-top-right-radius: 10px; 
+ }
+
+/* alternating colours in table rows between shades of blue  */
+tbody tr:nth-child(odd) {
+	background-color: #E9F5F6;
+ }
+
+tbody tr:nth-child(even) {
+	background-color: #D2E8EA;
+ }
+
+
+#gameDiv { 
+	width: 100%; 
+	margin: auto;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Lucida Console", monospace; /* font style used for body */
+	background: #C7E6E8; /* body background colour */
 }
 
 ul{
