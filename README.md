@@ -51,4 +51,4 @@ For the client-side (front end) of the application HTML, CSS and JavaScript were
 
 ## Contributions 
 
-Please refer to contributions.txt file for our commit logs and contributions towards this app
+Please refer to logs.txt file for our commit logs and contributions towards this app
