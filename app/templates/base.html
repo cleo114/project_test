@@ -2,11 +2,12 @@
 <!doctype html>
     <head>
         <title>Colour Match</title>
-        <link rel="icon" href="{{url_for('static',filename='/img/logo2.png')}}" type="image/icon type"> 
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game.css') }}">  
+        <link rel="icon" href="{{url_for('static',filename='/img/logo2.png')}}" type="image/icon type"> <!-- logo made using abobe -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base.css') }}"> <!-- base css for website -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/game.css') }}">  <!-- game css for game page -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <!-- used to create icons from font-awesome -->
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     </head>
     <body>
@@ -14,7 +15,7 @@
             <li>
                 <a href="{{ url_for('index') }}">
                     <div class="icon">
-                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <i class="fa fa-home" aria-hidden="true"></i> <!-- home logo -->
                         <i class="fa fa-home" aria-hidden="true"></i>
                     </div>
                     <div class="name"><span data-text="Home">Home</span></div>
@@ -24,7 +25,7 @@
             <li>
                 <a href="{{ url_for('play') }}">
                     <div class="icon">
-                        <i class="fa fa-gamepad" aria-hidden="true"></i>	
+                        <i class="fa fa-gamepad" aria-hidden="true"></i>	<!-- game icon -->
                         <i class="fa fa-gamepad" aria-hidden="true"></i>		
                     </div>
                     <div class="name"><span data-text="Game">Game</span></div>
@@ -32,7 +33,7 @@
             </li>
             <li>
                 <a class="navbar-brand" href="/">
-                    <div class="logo-image">
+                    <div class="logo-image"> <!-- logo for colour match -->
                           <img src="{{url_for('static',filename='/img/logo1.png')}}" class="img-fluid" width = '250' height="83">
                     </div>
                 </a>
@@ -40,7 +41,7 @@
             <li>
                 <a href="{{ url_for('score') }}">
                     <div class="icon">
-                        <i class="fa fa-trophy" aria-hidden="true"></i>	
+                        <i class="fa fa-trophy" aria-hidden="true"></i>	<!-- leaderboard icon -->
                         <i class="fa fa-trophy" aria-hidden="true"></i>		
                     </div>
                     <div class="name"><span data-text="Results">Results</span></div>
@@ -50,7 +51,7 @@
             <li>
                 <a href="{{ url_for('login') }}">
                     <div class="icon">
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>	
+                        <i class="fa fa-sign-in" aria-hidden="true"></i> <!-- sign in icon -->
                         <i class="fa fa-sign-in" aria-hidden="true"></i>		
                     </div>
                     <div class="name"><span data-text="Login">Login</span></div>
@@ -60,7 +61,7 @@
             <li>
                 <a href="{{ url_for('logout') }}">
                     <div class="icon">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>   
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> <!-- sign out logo -->  
                         <i class="fa fa-sign-out" aria-hidden="true"></i>       
                     </div>
                     <div class="name"><span data-text="Logout">Logout</span></div>
@@ -69,9 +70,9 @@
             {% endif %}
         </ul>
             
-        <div id = 'middlebox' class = 'center'>  {% block content %}{% endblock %} </div>
-        <div id = "gameDiv"> {% block game %}{% endblock %} </div>
-        <div id = "sharing" class= 'center'> {% block sharing %}{% endblock %} </div>
+        <div id = 'middlebox' class = 'center'>  {% block content %}{% endblock %} </div> <!-- box to placed on all pages of website except game page -->
+        <div id = "gameDiv"> {% block game %}{% endblock %} </div> <!-- used for game page -->
+        <div id = "sharing" class= 'center'> {% block sharing %}{% endblock %} </div> <!-- used for sharing page -->
         
        
        
