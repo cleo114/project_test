@@ -4,7 +4,6 @@ body{
 	padding: 0;
 	font-family: "Lucida Console", monospace; /* font style used for body */
 	background: #C7E6E8; /* body background colour */
-
 }
 
 ul{
@@ -26,9 +25,11 @@ ul li{
 	display: block;
 	border-right: 1px solid rgba(0,0,0,0.2); /* add border line on right of icon*/
 }
+
 ul li:last-child{
 	border-right: none; /* don't add border line for last icon */
 }
+
 ul li a{
 	text-decoration: none;
 	padding: 0 50px;
@@ -42,7 +43,6 @@ ul li a .icon{
 	text-align: center; 
 	overflow: hidden; 
 	margin: 0 auto 10px;
-	
 }
 
 ul li a .icon .fa{
@@ -62,6 +62,7 @@ ul li a .icon .fa:last-child{
 ul li a:hover .icon .fa{
 	transform: translateY(-100%); /* move icon down 100% when hovered on */
 }
+
 ul li a .name{
 	position: relative; /* positoned relative to its normal position */
 	height: 20px; 
@@ -122,7 +123,7 @@ ul li a:hover .name span{
   	justify-content: center;
 	box-shadow: 0 10px 30px rgba(0,0,0,.3); 
 	overflow:scroll; /* allows excess content to be scrollable - needed for results table */
-  }
+}
 
 #sharing { 
 	background-color: #e9b000; /* Set colour of share box to yellow */
@@ -134,7 +135,6 @@ ul li a:hover .name span{
 	left: 5px;
 	padding: 20px;
 }
-
 
 #info_font {
 	font-family: "Lucida Console", monospace; /* Set font */
@@ -150,80 +150,78 @@ table {
 	counter-reset: section; /* Set "section" to 0 */
 	height:300px;
 	display:block;
-
- }
+}
   
-  .count:before {
+.count:before {
 	/* increment "section"  by 1 */
 	counter-increment: section; 
 	content: counter(section);
-  }
+}
 
-  thead {
+thead {
 	background-color: #008f95; /* set table head to colour blue */
 	color: black; 
 	font-size: 0.875rem;
 	text-transform: uppercase;
 	letter-spacing: 2%;
-  }
+}
 
-  h1.center{
+h1.center {
 	text-align: center;
-  }
+}
 
-  #resultsheader{
+#resultsheader {
 	/* header starts 35px from top */
 	/* set font size, font style */
 	position:relative;
 	top:-35px;
 	font-family: "Lucida Console", monospace;
 	font-size: 20px; 
-  }
+}
 
-  th,td {
+th,td {
 	border: solid 1px #000; /* black border */
 	border-style: solid none;
 	padding: 5px;
 	height: 40px
-  }
+}
 
- td:first-child {
+td:first-child {
   /* first cell in table is given curved edges */
 	border-left-style: solid;
 	border-top-left-radius: 10px; 
 	border-bottom-left-radius: 10px;
- }
+}
 
- td:last-child {
+td:last-child {
  /* last cell in table is given curved edges */
 	border-right-style: solid;
 	border-bottom-right-radius: 10px; 
 	border-top-right-radius: 10px; 
- }
+}
 
- th:first-child {
+th:first-child {
  /* first header cell in table is given curved edges */
 	border-left-style: solid;
 	border-top-left-radius: 10px; 
 	border-bottom-left-radius: 10px;
- }
+}
 
- th:last-child {
+th:last-child {
  /* last header cell in table is given curved edges */
 	border-right-style: solid;
 	border-bottom-right-radius: 10px; 
 	border-top-right-radius: 10px; 
- }
+}
 
 /* alternating colours in table rows between shades of blue  */
 tbody tr:nth-child(odd) {
 	background-color: #E9F5F6;
- }
+}
 
 tbody tr:nth-child(even) {
 	background-color: #D2E8EA;
- }
-
+}
 
 #gameDiv { 
 	width: 100%; 
