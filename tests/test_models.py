@@ -27,15 +27,24 @@ class Models (unittest.TestCase):
         self.assertFalse(s.check_password('goodbye'))
         self.assertTrue(s.check_password('hello'))
 
-# if __name__=='__main__':
-#     unittest.main()
+if __name__=='__main__':
+    unittest.main()
 
 
 
-class AppFunction(unittest.TestCase):
+
+import os
+os.environ['DATABASE_URL'] = 'sqlite://'  # use an in-memory database for tests
+
+import unittest, os
+from app import app, db
+from app.models import User, Score
+
+
+class TestWebApp(unittest.TestCase):
     def setUp(self):
         self.app = app
-        self.app.config['WTF_CSRF_ENABLED'] = False  
+        self.app.config['WTF_CSRF_ENABLED'] = False  # no CSRF during tests
         self.appctx = self.app.app_context()
         self.appctx.push()
         db.create_all()
@@ -52,17 +61,18 @@ class AppFunction(unittest.TestCase):
         assert self.app is not None
         assert app == self.app
 
-    def test_home_page(self):
+    def test_home_page_redirect(self):
         response = self.client.get('/', follow_redirects=True)
         assert response.status_code == 200
         assert response.request.path == '/login'
 
 
-    def test_registration(self):
+    def test_registration_form(self):
         response = self.client.get('/register')
         assert response.status_code == 200
         html = response.get_data(as_text=True)
 
+        # make sure all the fields are included
         assert 'name="username"' in html
         assert 'name="email"' in html
         assert 'name="password"' in html
@@ -72,23 +82,24 @@ class AppFunction(unittest.TestCase):
 
     def test_register_user(self):
         response = self.client.post('/register', data={
-            'username': 'gemma',
-            'email': 'gemma@random.com',
-            'password': 'xxx',
-            'password2': 'xxx',
+            'username': 'bob',
+            'email': 'bob@example.com',
+            'password': 'bam',
+            'password2': 'bam',
         }, follow_redirects=True)
         assert response.status_code == 200
-        assert response.request.path == '/login' 
+        assert response.request.path == '/login' # redirected to login
 
 
-    def test_mismatched_passwords(self):
+    def test_register_user_mismatched_passwords(self):
         response = self.client.post('/register', data={
-            'username': 'gemma',
-            'email': 'gemma@random.com',
-            'password': 'xxx',
-            'password2': 'yyy',
+            'username': 'bob',
+            'email': 'bob@example.com',
+            'password': 'bam',
+            'password2': 'bar',
         })
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert 'Field must be equal to password.' in html
+
 
