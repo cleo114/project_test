@@ -27,8 +27,8 @@ class Models (unittest.TestCase):
         self.assertFalse(s.check_password('goodbye'))
         self.assertTrue(s.check_password('hello'))
 
-if __name__=='__main__':
-    unittest.main()
+# if __name__=='__main__':
+#     unittest.main()
 
 
 
