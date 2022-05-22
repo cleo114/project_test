@@ -9,7 +9,6 @@
     margin:auto;
     position: relative;
     bottom:50px; /* set to be 50px from the bottom */
-
 }
 
 #time { 
@@ -23,16 +22,6 @@
     text-align: center; 
     font-size: 30px;
 }
-
-.header {
-    /* might need to delete this */
-    padding: 5px;
-    text-align: center;
-    position:absolute;
-    left:5px;
-    right:5px;
-
-  }
 
 #GameBoard { 
     margin: auto;
@@ -70,13 +59,11 @@
     margin-bottom: 50px;
 }
 
-
 #color1 { 
     position: relative; 
     left: -10px;
     font-family: "Lucida Console", monospace;
     font-size: 50px;
-
 }
 
 #color2 { 
@@ -85,7 +72,6 @@
     top: -10px;
     font-family: "Lucida Console", monospace;
     font-size: 50px;
-    
 }
 
 #colourLabels { 
@@ -104,6 +90,5 @@
     top: 40%; 
     left: 42.5%; 
     background-color: #C7E6E8; 
-
 }
 
