@@ -1,13 +1,9 @@
 {% extends "base.html" %}
 
-
-
 {% block content %}
 
-
- 
-
-        <h1 class = 'center' id = 'resultsheader'> RESULTS </h1>
+    <h1 class = 'center' id = 'resultsheader'> RESULTS </h1> 
+    <!-- Used to display rankings of users in table format -->
     <table id = 'rankings' class = "center" >
         <thead id = 'info_font'>
             <tr>
@@ -23,41 +19,34 @@
             {% for i in res %}
             <tr>
                 <td class="count"> </td>
-                <td> {{ i[0] }}</td>
-                <td> {{ i[1] }}</td>
-                <td> {{ i[3] }}</td>
-                <td> {{ i[2] }}</td>
+                <td> {{ i[0] }}</td> <!-- added from database into ranking table -->
+                <td> {{ i[1] }}</td> <!-- added from database into ranking table -->
+                <td> {{ i[3] }}</td> <!-- added from database into ranking table -->
+                <td> {{ i[2] }}</td> <!-- added from database into ranking table -->
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
-
 {% endblock %}
 
-
-
-
 {%block sharing%}
-
-
+<!-- create a text box which allows users to share their high score with friends -->
 <script>
 
-function copyTextFunc() {
+ function copyTextFunc() {
 
-    var copyText = document.querySelector('#high_sc').innerText;
-    navigator.clipboard.writeText(copyText);
- };
+     var copyText = document.querySelector('#high_sc').innerText;
+     navigator.clipboard.writeText(copyText); <!-- copies high score from db into the sharing block -->
+  };
 
 </script>
 
-
-
-<p id = 'high_sc'> My highest score at Colour Match is {{highest_score[0]}}.
-    Play the game today and try beat me!
+<p id = 'high_sc'> 
+ My highest score at Colour Match is {{highest_score[0]}}.Play the game today and try beat me!
 </p> 
-<button id="copy_btn" onclick=copyTextFunc()>Click Here to Share</button>
 
+<button id="copy_btn" onclick=copyTextFunc()>Click Here to Share</button> <!-- copy text button -->
 
 {% endblock %}
 
