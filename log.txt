@@ -1,0 +1,371 @@
+*   commit 6ecbcd291e6c600e7db554bff9872b0e382c8e57 (refs/stash)
+|\  Merge: d450f2c 2ea7c6d
+| | Author: git stash <git@stash>
+| | Date:   Mon May 23 00:48:33 2022 +0800
+| | 
+| |     WIP on main: d450f2c Update score.html
+| | 
+| * commit 2ea7c6db23da60c59689b2c3d19bc787b7bc5e2f
+|/  Author: git stash <git@stash>
+|   Date:   Mon May 23 00:48:33 2022 +0800
+|   
+|       index on main: d450f2c Update score.html
+|   
+| * commit 2efaa37fe3d65ba97fbbe0f29f7da1d3ee7764ea (HEAD -> main, origin/main, origin/HEAD)
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Mon May 23 00:46:58 2022 +0800
+| | 
+| |     Update README.md
+| | 
+| * commit 487d2b98a941435ef4cb61a0900aafd6c305a70d
+| | Author: laraposel <105583355+laraposel@users.noreply.github.com>
+| | Date:   Mon May 23 00:44:07 2022 +0800
+| | 
+| |     Create requirements.txt
+| | 
+| * commit c3655abc03eb4b92abdf9ae9e6fa70f12ade319d
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Mon May 23 00:38:48 2022 +0800
+| | 
+| |     Update score.html
+| | 
+| * commit 2fdb799541f38feb1038614c589a564a58ef9f6d
+|/  Author: laraposel <105583355+laraposel@users.noreply.github.com>
+|   Date:   Mon May 23 00:34:04 2022 +0800
+|   
+|       Update README.md
+| 
+* commit d450f2c5c075437ec4f15857948056ea4bfd1e9c
+| Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| Date:   Mon May 23 00:32:00 2022 +0800
+| 
+|     Update score.html
+| 
+* commit fa1810dd4bbd5daab2f24f96c58d46117f058530
+| Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| Date:   Mon May 23 00:29:48 2022 +0800
+| 
+|     Update base.css
+| 
+* commit 8c4d8357952efb5576314ceb1afc7fc9e115948b
+| Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| Date:   Mon May 23 00:26:54 2022 +0800
+| 
+|     Update README.md
+|   
+*   commit e20109d8ca2f74d158be46022b20dc93b432054f
+|\  Merge: 56fec1e 66e4139
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Mon May 23 00:19:33 2022 +0800
+| | 
+| |     db update
+| | 
+| * commit 66e41396b330ba58eff1b1163822dd53361b3ae1
+| | Author: laraposel <105583355+laraposel@users.noreply.github.com>
+| | Date:   Mon May 23 00:07:18 2022 +0800
+| | 
+| |     Update README
+| | 
+| * commit 2c0a73192f2b2dbceb279d19b784f2ea3d33ec36
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 23:55:09 2022 +0800
+| | 
+| |     moved sharing box more left
+| | 
+| * commit 5d77bc247c9700068918e54923effec6f9dac5e1
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 23:53:41 2022 +0800
+| | 
+| |     added new share button which copies and hides text
+| | 
+| * commit 1193419966e984af53bd46b50413102d218fc319
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Sun May 22 23:18:37 2022 +0800
+| | 
+| |     Cleaning up code.
+| | 
+* | commit 56fec1eac102cebd3bb9c1928db9f138d477e88f
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Mon May 23 00:17:02 2022 +0800
+| | 
+| |     db
+| | 
+* | commit 382efc475511ee69ea07e311f8e3fc891510dffb
+|/  Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+|   Date:   Mon May 23 00:14:58 2022 +0800
+|   
+|       updated testing
+|   
+*   commit 29db880938cf8d68257a83885a9132cc9bc4063f
+|\  Merge: b50cecd 3a5b088
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Sun May 22 21:45:16 2022 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/cleo114/project_test into main
+| |     .
+| | 
+| * commit 3a5b08868fa614487c05621cce95459debb18e31
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 21:38:38 2022 +0800
+| | 
+| |     Update __init__.py
+| | 
+* | commit b50cecd8e70d54afa8ec9cba60b0f6c254c82d92
+|/  Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+|   Date:   Sun May 22 21:43:58 2022 +0800
+|   
+|       refreshing db
+|   
+*   commit ddd3a2a48f436bba5aa115ec3d873a7901e6d053
+|\  Merge: 3bc0c99 7269a46
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Sun May 22 21:02:35 2022 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/cleo114/project_test into main
+| | 
+| * commit 7269a46e12eaebf1a820c5fa783fb1f27fba699b
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 20:52:23 2022 +0800
+| | 
+| |     added comments
+| | 
+| * commit 9246e994c95e63eec1c04c7883b47e26ce89e90b
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 20:15:52 2022 +0800
+| | 
+| |     add comments to base.css
+| | 
+| * commit 7536be0d9e79a01aac6e26bce445b766a14cb7dc
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 15:39:58 2022 +0800
+| | 
+| |     added comments
+| | 
+| * commit 9cd13c5cfcb35bb778dca61b208badcf9dcd2c58
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 15:34:42 2022 +0800
+| | 
+| |     added comments
+| | 
+| * commit cbfa489a0048570f9aaa651c2b6c2c69076d1d98
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 15:33:15 2022 +0800
+| | 
+| |     added comments
+| | 
+| * commit 377a4fdc81b7df3a61b108a2bc1528a981c86c64
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 15:31:29 2022 +0800
+| | 
+| |     added comments
+| | 
+| * commit 07cbd9866b2b157a2e6635fd358054945fe2040d
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 15:30:27 2022 +0800
+| | 
+| |     added comments to game.html
+| | 
+| * commit 04ea179bb9dc59ef7db53888ad9118b848c83dd6
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Sun May 22 15:27:02 2022 +0800
+| | 
+| |     Update base.html
+| |     
+| |     adding comments to base html
+| | 
+* | commit 3bc0c99657f32906c5d83ee13271618a2cae1298
+|/  Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+|   Date:   Sun May 22 21:01:19 2022 +0800
+|   
+|       updated testing files
+|   
+*   commit 796914555af2674d5173b68267820e75f9cd210c
+|\  Merge: f419711 a016fa4
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Sat May 21 11:59:29 2022 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/cleo114/project_test into main
+| | 
+| * commit a016fa47759f6e08735d9d33ee7b54f3ea8e04bd
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Fri May 20 14:20:12 2022 +0800
+| | 
+| |     Update README.md
+| | 
+| * commit 9bda55aa2dc6c670506229bb50ec0d1c016af66f
+| | Author: christine-hc <101613906+christine-hc@users.noreply.github.com>
+| | Date:   Fri May 20 14:19:24 2022 +0800
+| | 
+| |     Update README.md
+| | 
+* | commit f41971141f55e23a45ca90acfecbe2a25588b1ac
+|/  Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+|   Date:   Sat May 21 11:58:56 2022 +0800
+|   
+|       starting testing
+| 
+* commit 86ce98f81a677a8bd2c6f91e3bb82ec897fee795
+| Author: Cleo Sabath <cleosabath@Cleos-MacBook-Pro.local>
+| Date:   Thu May 19 10:21:24 2022 +0800
+| 
+|     sharing button fix
+| 
+* commit 7ddd73ec807195626bc15439fe09c773126ba2f5
+| Author: Cleo Sabath <cleosabath@Cleos-MacBook-Pro.local>
+| Date:   Thu May 19 10:19:27 2022 +0800
+| 
+|     sharing button
+|   
+*   commit 210effc4bb09a55f13133e4524e900c73a800967
+|\  Merge: bb253ee bf6fd7c
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Wed May 18 22:49:14 2022 +0800
+| | 
+| |     .
+| | 
+| * commit bf6fd7ce16b07051a1afe3e0bd2f66419a2401d6
+| | Author: Christine Harcourt-Cooke <christineharcourt-cooke@Christines-MacBook-Air-2.local>
+| | Date:   Wed May 18 13:10:55 2022 +0800
+| | 
+| |      deleted files that weren't needed
+| | 
+* | commit bb253eeda9ba3d44c262ec79a5849d9dd417de8e
+|/  Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+|   Date:   Wed May 18 22:48:43 2022 +0800
+|   
+|       merging separate css files from everyone
+|   
+*   commit d98745fb86af4dbd861541d29d7d464f806b77fe
+|\  Merge: d219f70 677c002
+| | Author: Christine Harcourt-Cooke <christineharcourt-cooke@Christines-MacBook-Air-2.local>
+| | Date:   Wed May 18 13:03:49 2022 +0800
+| | 
+| |      base and css new and improved
+| | 
+| * commit 677c002df8cf3fe427ea00bb1dba716bbf9ba2d5
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Wed May 18 12:53:08 2022 +0800
+| | 
+| |     Most up to date version.
+| | 
+| * commit 9dc46980d5c34ef2f4d1574e68c443421a3c1d88
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Wed May 18 10:26:17 2022 +0800
+| | 
+| |     More cleaning of javascript and fixed issue where the grid was expanding outside its allowed area.
+| | 
+| * commit 66836584a6aa8e16fc44b18b6d6cdb04aa44cc54
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Wed May 18 09:04:59 2022 +0800
+| | 
+| |     Better method to make the grid and system to increment the grid size.
+| | 
+| * commit a89712c05fd576f292d26b7b6466a4153e685062
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Tue May 17 11:06:02 2022 +0800
+| | 
+| |     Better randomisation of grid square colours.
+| | 
+| * commit f384f40cbad6c82c13eeae1da33ee321057d8cc0
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Tue May 17 09:20:10 2022 +0800
+| | 
+| |     Cleaning up javascript
+| | 
+| * commit 24a6ba689408563b51aba2706c8bd5250abe12b5
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Mon May 16 20:08:32 2022 +0800
+| | 
+| |     Square colours change randomly
+| | 
+| * commit f73ee57c7f88aacd26df157ef5951e638417e7cd
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Mon May 16 18:30:08 2022 +0800
+| | 
+| |     Working expanding grid with green, blue, red, yellow, white, grey
+| | 
+| * commit 2869b5a859103964589c9d3f1fd60136b3742f8d
+| | Author: laraposel <22972221@student.uwa.edu.au>
+| | Date:   Mon May 16 16:19:07 2022 +0800
+| | 
+| |     Grid grows as you get answers correct
+| | 
+* | commit d219f70076588e0a754025dc5e6a3f323e200284
+|/  Author: Christine Harcourt-Cooke <christineharcourt-cooke@Christines-MacBook-Air-2.local>
+|   Date:   Wed May 18 12:58:08 2022 +0800
+|   
+|       this is new base and css
+| 
+* commit af029e9b6b9c62d974c5b117b0fda504d30d8ef0
+| Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| Date:   Fri May 13 12:26:46 2022 +0800
+| 
+|     update db
+| 
+* commit cf1cd5e5c46af6099b4cee22a115ed229e0d26cb
+| Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| Date:   Thu May 12 22:27:09 2022 +0800
+| 
+|     updated score page
+|   
+*   commit ce77fd559c681948c36588f5281dcafbc459964b
+|\  Merge: 5ac819a 3f6c16a
+| | Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+| | Date:   Mon May 9 17:49:51 2022 +0800
+| | 
+| |     creating score db
+| |   
+| *   commit 3f6c16ab3c620193a4c25455dfd2ba20029219f4
+| |\  Merge: 0efef41 652775d
+| | | Author: Christine Harcourt-Cooke <christineharcourt-cooke@Christines-MacBook-Air-2.local>
+| | | Date:   Thu May 5 12:52:43 2022 +0800
+| | | 
+| | |      results css
+| | | 
+| * | commit 0efef415487573985256da8ba449d7f7a153ca4d
+| | | Author: Christine Harcourt-Cooke <christineharcourt-cooke@Christines-MacBook-Air-2.local>
+| | | Date:   Thu May 5 12:46:18 2022 +0800
+| | | 
+| | |     this is the results page with a logo and leaderboard
+| | | 
+* | | commit 5ac819acdc0518e62ce3b21fbf126a7034c76445
+| |/  Author: Cleo Sabath <cleosabath@cleos-mbp.lan>
+|/|   Date:   Mon May 9 17:39:51 2022 +0800
+| |   
+| |       creating db and some updates
+| | 
+* | commit 652775d75f30ee209e900be7fbcce91766e8d995
+| | Author: Cleo Sabath <cleosabath@Cleos-MacBook-Pro.local>
+| | Date:   Thu May 5 11:53:41 2022 +0800
+| | 
+| |     tutorial pt 5
+| | 
+* | commit 89d09ba8cdb24a450d04976a72b18dbbff39f2ec
+| | Author: Cleo Sabath <cleosabath@Cleos-MacBook-Pro.local>
+| | Date:   Thu May 5 11:07:51 2022 +0800
+| | 
+| |     part 4 of tutorial
+| | 
+* | commit eba49b78f4d77b1dad1331df4a8cded9a037676b
+|/  Author: Cleo Sabath <cleosabath@Cleos-MacBook-Pro.local>
+|   Date:   Thu May 5 10:29:27 2022 +0800
+|   
+|       more of the tutorial
+| 
+* commit 8b154d945b76ab380f07dffe35ae4cf4ab465e18
+| Author: Cleo Sabath <cleosabath@Cleos-MacBook-Pro.local>
+| Date:   Wed May 4 16:07:20 2022 +0800
+| 
+|     practice setup
+| 
+* commit fe980ccbb107f8398439d37691c86ad663aa5c23
+| Author: cleo114 <104885153+cleo114@users.noreply.github.com>
+| Date:   Wed May 4 14:29:02 2022 +0800
+| 
+|     Update README.md
+| 
+* commit 7883dbb6c0a5cca84e12a193072981d7b50b949f
+  Author: cleo114 <104885153+cleo114@users.noreply.github.com>
+  Date:   Wed May 4 13:50:23 2022 +0800
+  
+      Initial commit
