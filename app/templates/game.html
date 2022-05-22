@@ -5,30 +5,24 @@
 <body>
    <div class="top">
         <button id="start" onclick="startGame()"> <i id="playButton" class="fa fa-play" style="font-size: 150px; color: #e9b000;"></i> </button>
+      <!-- a play icon added to be used to start the game -->
     </div>
 
     <div id="colourLabels">
-        <div id="color1" class="colorText color1"></div>
-        <div id="color2" class="colorText color2"></div>
+        <div id="color1" class="colorText color1"></div> <!-- word1 for colour match game -->
+        <div id="color2" class="colorText color2"></div> <!-- word2 for colour match game-->
     </div>
     
-
-
-
-    
-    <div id = "GameBoard" style="display:none"></div>
+    <div id = "GameBoard" style="display:none"></div> <!-- game is not displayed until play button is pressed -->
     <div id="resultsContainer">
-    <span id="correct"></span> 
-    <span id="time"></span>
+      <span id="correct"></span> <!-- number of correct guesses -->
+      <span id="time"></span> <!-- amount of time remaining -->
     </div>
-
-
 
 <script src="{{url_for('static', filename='javascript/game.js')}}"></script>
 </body>
 
-
-<style>#sharing{display: none;}</style>
+<style>#sharing{display: none;}</style> 
 
 {% endblock %}
 
